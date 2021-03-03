@@ -1,0 +1,13 @@
+/root/IdeaProjects/serviceWeb/RameurEJB-ejb/src/main/java/ear/entity/Mesure_moyenne.java
+/root/IdeaProjects/serviceWeb/RameurEJB-ejb/src/main/java/ear/session/UtilisateurLocal.java
+/root/IdeaProjects/serviceWeb/RameurEJB-ejb/src/main/java/ear/entity/Activite_distance.java
+/root/IdeaProjects/serviceWeb/RameurEJB-ejb/src/main/java/ear/entity/Activite_duree.java
+/root/IdeaProjects/serviceWeb/RameurEJB-ejb/src/main/java/ear/entity/Type_activite.java
+/root/IdeaProjects/serviceWeb/RameurEJB-ejb/src/main/java/ear/entity/Course.java
+/root/IdeaProjects/serviceWeb/RameurEJB-ejb/src/main/java/ear/entity/Activite_calories.java
+/root/IdeaProjects/serviceWeb/RameurEJB-ejb/src/main/java/ear/entity/Mesure.java
+/root/IdeaProjects/serviceWeb/RameurEJB-ejb/src/main/java/ear/session/UtilisateurRemote.java
+/root/IdeaProjects/serviceWeb/RameurEJB-ejb/src/main/java/ear/entity/Utilisateur.java
+/root/IdeaProjects/serviceWeb/RameurEJB-ejb/src/main/java/ear/entity/Activite_libre.java
+/root/IdeaProjects/serviceWeb/RameurEJB-ejb/src/main/java/ear/session/UtilisateurBean.java
+/root/IdeaProjects/serviceWeb/RameurEJB-ejb/src/main/java/ear/entity/Entrainement.java
