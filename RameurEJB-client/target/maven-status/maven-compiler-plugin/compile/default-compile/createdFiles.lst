@@ -1,6 +1,5 @@
-ear/main/MainApplication.class
-ear/main/Connexion.class
+ear/main/GestionCompte.class
 ear/entities/Type_activite.class
 ear/entities/Utilisateur.class
-ear/ws/UtilisateurRestfulClient.class
+ear/ws/EntrainementRestfulClient.class
 ear/entities/Entrainement.class

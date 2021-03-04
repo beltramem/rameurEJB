@@ -35,7 +35,7 @@ public class GestionCompte {
         return utilisateur;
     }
 
-    public void CreationCompte() throws Exception {
+    public Utilisateur CreationCompte() throws Exception {
         Scanner sc= new Scanner(System.in);
         System.out.println("Création d'un compte: \nIdentifiant: ");
         String user = sc.nextLine();
@@ -65,5 +65,6 @@ public class GestionCompte {
 
 
         }
+        return  new Utilisateur();
     }
 }

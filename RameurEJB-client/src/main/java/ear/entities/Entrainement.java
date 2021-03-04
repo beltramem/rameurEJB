@@ -75,11 +75,11 @@ public class Entrainement implements Serializable {
         this.participants = new ArrayList<Utilisateur>();
     }
 
-    public Entrainement(Type_activite type_activite, int etat) {
+    public Entrainement(Type_activite type_activite, int etat,List<Utilisateur> participants) {
         this.type_activite = type_activite;
         this.etat = etat;
         this.date = new Date();
-        this.participants = new ArrayList<Utilisateur>();
+        this.participants = participants;
     }
 
     public Entrainement() {

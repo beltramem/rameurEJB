@@ -2,6 +2,7 @@ package ear.session;
 
 import ear.entity.Entrainement;
 import ear.entity.Type_activite;
+import ear.entity.Utilisateur;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
@@ -20,22 +21,23 @@ public class EntrainementBean implements EntrainementLocal, EntrainementRemote {
     private EntityManager em;
 
 
-    @Override
-    public void CreationEntrainement(Type_activite type, int etat) {
 
+    public void CreationEntrainement(Type_activite type, int etat, List<Utilisateur> participants){
+        Entrainement ent = new Entrainement(type,0,participants);
+        em.persist(ent);
     }
 
-    @Override
+
     public List<Entrainement> getEntrainementByUser(String identifiant) {
         return null;
     }
 
-    @Override
+
     public List<Entrainement> getEntrainement() {
         return null;
     }
 
-    @Override
+
     public List<Entrainement> getEntrainementByType(Type_activite type) {
         return null;
     }

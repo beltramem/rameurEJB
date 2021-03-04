@@ -1,6 +1,8 @@
 package ear.main;
 
+import ear.entities.Entrainement;
 import ear.entities.Utilisateur;
+import ear.ws.EntrainementRestfulClient;
 
 import java.util.Scanner;
 
@@ -22,14 +24,19 @@ public class MainApplication {
             {
                 Utilisateur usr = c.Connexion();
                 System.out.println(usr.getIdentifiant());
+
             }
             else if (choix.equals("2")){
-                c.CreationCompte();
+                Utilisateur usr = c.CreationCompte();
+                System.out.println(usr.getIdentifiant());
             }
             else{
                 tmp = true;
             }
         }
+
+        EntrainementRestfulClient entr = new EntrainementRestfulClient();
+        Entrainement ent = entr.creationEntrainement();
 
     }
 }
