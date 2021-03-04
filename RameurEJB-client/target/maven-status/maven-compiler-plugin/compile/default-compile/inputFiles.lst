@@ -1,2 +1,6 @@
+/root/IdeaProjects/rameurEJB/RameurEJB-client/src/main/java/ear/main/Connexion.java
+/root/IdeaProjects/rameurEJB/RameurEJB-client/src/main/java/ear/entities/Entrainement.java
 /root/IdeaProjects/rameurEJB/RameurEJB-client/src/main/java/ear/entities/Utilisateur.java
+/root/IdeaProjects/rameurEJB/RameurEJB-client/src/main/java/ear/entities/Type_activite.java
+/root/IdeaProjects/rameurEJB/RameurEJB-client/src/main/java/ear/main/MainApplication.java
 /root/IdeaProjects/rameurEJB/RameurEJB-client/src/main/java/ear/ws/UtilisateurRestfulClient.java

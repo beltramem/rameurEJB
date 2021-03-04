@@ -1,6 +1,7 @@
 ear/entity/Entrainement$QN.class
 ear/entity/Utilisateur.class
 ear/entity/Activite_calories.class
+ear/session/EntrainementBean.class
 ear/entity/Mesure_moyenne$QN.class
 ear/entity/Type_activite$QN.class
 ear/session/UtilisateurRemote.class
@@ -10,10 +11,12 @@ ear/entity/Entrainement.class
 ear/entity/Utilisateur$QN.class
 ear/entity/Type_activite.class
 ear/entity/Activite_duree.class
+ear/session/EntrainementRemote.class
 ear/entity/Course$QN.class
 ear/entity/Mesure$QN.class
 ear/entity/Activite_libre.class
 ear/entity/Activite_distance.class
 ear/session/UtilisateurBean.class
+ear/session/EntrainementLocal.class
 ear/session/UtilisateurLocal.class
 ear/entity/Course.class

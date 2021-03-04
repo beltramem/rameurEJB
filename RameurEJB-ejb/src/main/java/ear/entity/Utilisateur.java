@@ -2,8 +2,11 @@ package ear.entity;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import static ear.entity.Utilisateur.QN.ALL_COMPTE;
@@ -40,6 +43,20 @@ public class Utilisateur implements Serializable {
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="CET")
     private Date date_naissance;
 
+    @ManyToMany
+    @JoinTable( name = "participe_entrainement",
+            joinColumns = @JoinColumn( name = "identifiant" ),
+            inverseJoinColumns = @JoinColumn( name = "id" ) )
+    private List<Entrainement> entrainements;
+
+    @XmlTransient
+    public List<Entrainement> getEntrainements() {
+        return entrainements;
+    }
+
+    public void setEntrainements(List<Entrainement> entrainements) {
+        this.entrainements = entrainements;
+    }
 
     public String getIdentifiant() {
         return identifiant;

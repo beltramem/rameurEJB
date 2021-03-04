@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Utilisateur implements Serializable {
 
@@ -19,6 +20,7 @@ public class Utilisateur implements Serializable {
     private double taille;
     private double poids;
     private Date date_naissance;
+    private List<Entrainement> entrainements;
 
 
     public String getIdentifiant() {

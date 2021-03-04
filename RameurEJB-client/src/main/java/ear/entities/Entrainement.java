@@ -1,4 +1,4 @@
-package ear.entity;
+package ear.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,45 +6,20 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlTransient;
 
-import static ear.entity.Entrainement.QN.ALL_ENTRAINEMENT;
-import static ear.entity.Entrainement.QN.FIND_ENTRAINEMENT;
 
-@Entity
-@Table(name = "entrainement")
-@NamedQueries({@NamedQuery(name=ALL_ENTRAINEMENT, query="select o FROM Entrainement o"),
-        @NamedQuery(name=FIND_ENTRAINEMENT, query="select o FROM Entrainement o WHERE o.id = :ID")})
+
 public class Entrainement implements Serializable {
 
-    public static interface QN {
-        /**
-         * Search all Entrainement.
-         */
-        String ALL_ENTRAINEMENT = "entrainement.allEntrainement";
 
-        /**
-         * Search a id Entrainement.
-         */
-        String FIND_ENTRAINEMENT = "entrainement.findEntrainement";
 
-   }
-
-    @Id
-    @GeneratedValue( strategy=GenerationType.IDENTITY )
     private int id;
-    @ManyToOne
-    @JoinColumn(name="type_activite",referencedColumnName = "id")
+
     private Type_activite type_activite;
     private int etat;
     private Date date;
-    @ManyToMany
-    @JoinTable( name = "participe_entrainement",
-            joinColumns = @JoinColumn( name = "id" ),
-            inverseJoinColumns = @JoinColumn( name = "identifiant" ) )
     private List<Utilisateur> participants;
 
-    @XmlTransient
     public List<Utilisateur> getParticipants() {
         return participants;
     }
@@ -112,3 +87,4 @@ public class Entrainement implements Serializable {
         this.participants = new ArrayList<Utilisateur>();
     }
 }
+
