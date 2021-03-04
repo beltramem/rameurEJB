@@ -1,10 +1,10 @@
-package ear.entities;
+package ear.entity;
 
 
 
-import static ear.entities.Type_activite.QN.ALL_ACTIVITES;
+import static ear.entity.Type_activite.QN.ALL_ACTIVITES;
 
-import static ear.entities.Type_activite.QN.PAR_ID;
+import static ear.entity.Type_activite.QN.PAR_ID;
 
 
 

@@ -1,4 +1,4 @@
-package ear.entities;
+package ear.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

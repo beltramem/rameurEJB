@@ -1,7 +1,7 @@
 package ear.session;
 
-import ear.entities.Utilisateur;
-import static ear.entities.Utilisateur.QN.FIND_COMPTE;
+import ear.entity.Utilisateur;
+import static ear.entity.Utilisateur.QN.FIND_COMPTE;
 
 import javax.ejb.Local;
 import javax.ejb.Remote;
@@ -9,7 +9,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 @Stateless
@@ -56,6 +56,7 @@ public class UtilisateurBean  implements  UtilisateurLocal, UtilisateurRemote{
         }
         if (utilisateur.get(0).getMdp().equals(mdp))
         {
+            System.out.println(utilisateur.get(0).toString());
             return utilisateur.get(0);
         }
         else

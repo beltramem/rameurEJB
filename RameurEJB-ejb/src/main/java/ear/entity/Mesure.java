@@ -1,11 +1,11 @@
-package ear.entities;
+package ear.entity;
 
 
 
-import static ear.entities.Mesure.QN.ALL_MESURES;
-import static ear.entities.Mesure.QN.PAR_UTILISATEUR;
-import static ear.entities.Mesure.QN.PAR_ENTRAINEMENT;
-import static ear.entities.Mesure.QN.PAR_COURSE;
+import static ear.entity.Mesure.QN.ALL_MESURES;
+import static ear.entity.Mesure.QN.PAR_UTILISATEUR;
+import static ear.entity.Mesure.QN.PAR_ENTRAINEMENT;
+import static ear.entity.Mesure.QN.PAR_COURSE;
 
 
 

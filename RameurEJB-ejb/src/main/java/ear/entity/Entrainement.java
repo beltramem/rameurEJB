@@ -1,29 +1,29 @@
-package ear.entities;
+package ear.entity;
 
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
 
-import static ear.entities.Course.QN.ALL_COURSE;
-import static ear.entities.Course.QN.FIND_COURSE;
+import static ear.entity.Entrainement.QN.ALL_ENTRAINEMENT;
+import static ear.entity.Entrainement.QN.FIND_ENTRAINEMENT;
 
 @Entity
-@Table(name = "course")
-@NamedQueries({@NamedQuery(name=ALL_COURSE, query="select o FROM Course o"),
-        @NamedQuery(name=FIND_COURSE, query="select o FROM Course o WHERE o.id = :ID")})
-public class Course implements Serializable {
+@Table(name = "entrainement")
+@NamedQueries({@NamedQuery(name=ALL_ENTRAINEMENT, query="select o FROM Entrainement o"),
+        @NamedQuery(name=FIND_ENTRAINEMENT, query="select o FROM Entrainement o WHERE o.id = :ID")})
+public class Entrainement implements Serializable {
 
     public static interface QN {
         /**
-         * Search all Course.
+         * Search all Entrainement.
          */
-        String ALL_COURSE = "course.allCourse";
+        String ALL_ENTRAINEMENT = "entrainement.allEntrainement";
 
         /**
-         * Search a id Course.
+         * Search a id Entrainement.
          */
-        String FIND_COURSE = "course.findCourse";
+        String FIND_ENTRAINEMENT = "entrainement.findEntrainement";
     }
 
     @Id
@@ -68,13 +68,13 @@ public class Course implements Serializable {
         this.date = date;
     }
 
-    public Course(int id, Type_activite type_activite, int etat, Date date) {
+    public Entrainement(int id, Type_activite type_activite, int etat, Date date) {
         this.id = id;
         this.type_activite = type_activite;
         this.etat = etat;
         this.date = date;
     }
 
-    public Course() {
+    public Entrainement() {
     }
 }

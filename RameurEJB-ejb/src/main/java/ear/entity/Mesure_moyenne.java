@@ -1,13 +1,13 @@
-package ear.entities;
+package ear.entity;
 
 import javax.persistence.*;
 
 
 import java.io.Serializable;
 
-import static ear.entities.Mesure_moyenne.QN.PAR_UTILISATEUR;
-import static ear.entities.Mesure_moyenne.QN.PAR_UTILISATEUR_TYPE_ENTRAINEMENT;
-import static ear.entities.Mesure_moyenne.QN.PAR_TYPE_ENTRAINEMENT;
+import static ear.entity.Mesure_moyenne.QN.PAR_UTILISATEUR;
+import static ear.entity.Mesure_moyenne.QN.PAR_UTILISATEUR_TYPE_ENTRAINEMENT;
+import static ear.entity.Mesure_moyenne.QN.PAR_TYPE_ENTRAINEMENT;
 
 
 @Entity

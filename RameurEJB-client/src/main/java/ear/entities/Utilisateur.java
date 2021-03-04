@@ -1,17 +1,30 @@
 package ear.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Date;
 
-
 @Entity
 @Table(name = "utilisateur")
+@NamedQueries({@NamedQuery(name= Utilisateur.QN.ALL_COMPTE, query="select o FROM Utilisateur o"),
+        @NamedQuery(name= Utilisateur.QN.FIND_COMPTE, query="select o FROM Utilisateur o WHERE o.identifiant = :ID")})
 @XmlRootElement
 public class Utilisateur implements Serializable {
+
+    public static interface QN {
+        /**
+         * Search all authors.
+         */
+        String ALL_COMPTE = "utilisateur.allCompte";
+
+        /**
+         * Search a named author.
+         */
+        String FIND_COMPTE = "utilisateur.findCompte";
+    }
 
     //private static final long serialVersionUID = 0l;
     @Id
@@ -21,6 +34,8 @@ public class Utilisateur implements Serializable {
     private String prenom;
     private double taille;
     private double poids;
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="CET")
     private Date date_naissance;
 
 

@@ -1,13 +1,13 @@
-package ear.entities;
-
-import static ear.entities.Utilisateur.QN.ALL_COMPTE;
-import static ear.entities.Utilisateur.QN.FIND_COMPTE;
-
-import java.io.Serializable;
-import java.util.Date;
+package ear.entity;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import static ear.entity.Utilisateur.QN.ALL_COMPTE;
+import static ear.entity.Utilisateur.QN.FIND_COMPTE;
 
 @Entity
 @Table(name = "utilisateur")
@@ -36,6 +36,8 @@ public class Utilisateur implements Serializable {
     private String prenom;
     private double taille;
     private double poids;
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="CET")
     private Date date_naissance;
 
 
@@ -88,7 +90,7 @@ public class Utilisateur implements Serializable {
     }
 
     public Date getDate_naissance() {
-        return date_naissance;
+        return this.date_naissance;
     }
 
     public void setDate_naissance(Date date_naissance) {
@@ -107,5 +109,18 @@ public class Utilisateur implements Serializable {
 
     public Utilisateur()
     {
+    }
+
+    @Override
+    public String toString() {
+        return "Utilisateur{" +
+                "identifiant='" + identifiant + '\'' +
+                ", mdp='" + mdp + '\'' +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", taille=" + taille +
+                ", poids=" + poids +
+                ", date_naissance=" + date_naissance +
+                '}';
     }
 }

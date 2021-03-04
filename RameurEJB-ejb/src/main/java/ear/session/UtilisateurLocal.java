@@ -1,9 +1,9 @@
 package ear.session;
 
-import ear.entities.Utilisateur;
+import ear.entity.Utilisateur;
 
 import javax.ejb.Local;
-import java.util.Date;
+import java.sql.Date;
 
 @Local
 public interface UtilisateurLocal {
