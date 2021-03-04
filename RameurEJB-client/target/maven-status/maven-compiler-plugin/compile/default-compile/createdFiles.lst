@@ -1,4 +1,2 @@
-ear\ws\UtilisateurRestfulClient.class
-ear\main\JFrameConnexion.class
-ear\entities\Utilisateur.class
-ear\entities\Utilisateur$QN.class
+ear/entities/Utilisateur.class
+ear/ws/UtilisateurRestfulClient.class

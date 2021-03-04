@@ -1,2 +1,2 @@
-ear\service\UtilisateurService.class
-ear\service\ApplicationRest.class
+ear/service/ApplicationRest.class
+ear/service/UtilisateurService.class
