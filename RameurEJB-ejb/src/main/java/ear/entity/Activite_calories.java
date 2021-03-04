@@ -18,7 +18,7 @@ public class Activite_calories extends Type_activite {
         this.calorie_brulee = calorie_brulee;
     }
 
-    public Activite_calories(String id, String nom, String description, double calorie_brulee) {
+    public Activite_calories(int id, String nom, String description, double calorie_brulee) {
         super(id, nom, description);
         this.calorie_brulee = calorie_brulee;
     }

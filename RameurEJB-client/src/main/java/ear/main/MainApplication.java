@@ -11,7 +11,7 @@ public class MainApplication {
 
 
     public static void main(String[] args) throws Exception {
-        GestionCompte c= new GestionCompte();
+        /*GestionCompte c= new GestionCompte();
         boolean tmp=true;
         while(tmp)
         {
@@ -33,10 +33,10 @@ public class MainApplication {
             else{
                 tmp = true;
             }
-        }
+        }*/
 
         EntrainementRestfulClient entr = new EntrainementRestfulClient();
-        Entrainement ent = entr.creationEntrainement();
+        Entrainement ent = entr.creationEntrainement(1,0);
 
     }
 }

@@ -1,5 +1,6 @@
 package ear.service;
 
+import ear.entity.Entrainement;
 import ear.entity.Type_activite;
 import ear.entity.Utilisateur;
 import ear.session.EntrainementLocal;
@@ -25,10 +26,11 @@ public class EntrainementService {
     @Path("/creationEntrainement")
     @Produces(MediaType.APPLICATION_JSON)
     public void creationEntrainement(
-            @PathParam(value="type_activite")Type_activite type_activite,
+            @PathParam(value="type_activite")int type_activite,
             @PathParam(value="etat")int etat,
-            @PathParam(value="participant")List<Utilisateur> participants)
+            @PathParam(value="participant")String participant)
     {
-        ent.CreationEntrainement(type_activite,etat,participants);
+        Entrainement e = ent.CreationEntrainement(type_activite,etat);
+        ent.ajouterParticipant(participant,e.getId());
     }
 }

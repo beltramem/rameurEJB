@@ -44,6 +44,11 @@ public class Entrainement implements Serializable {
             inverseJoinColumns = @JoinColumn( name = "identifiant" ) )
     private List<Utilisateur> participants;
 
+    public void add_participant(Utilisateur paticipant)
+    {
+
+    }
+
     @XmlTransient
     public List<Utilisateur> getParticipants() {
         return participants;
@@ -100,11 +105,11 @@ public class Entrainement implements Serializable {
         this.participants = new ArrayList<Utilisateur>();
     }
 
-    public Entrainement(Type_activite type_activite, int etat, List<Utilisateur> paticipants) {
+    public Entrainement(Type_activite type_activite, int etat) {
         this.type_activite = type_activite;
         this.etat = etat;
         this.date = new Date();
-        this.participants = paticipants;
+        this.participants = new ArrayList<Utilisateur>();
     }
 
     public Entrainement() {

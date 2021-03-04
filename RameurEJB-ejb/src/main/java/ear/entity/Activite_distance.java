@@ -18,7 +18,7 @@ public class Activite_distance extends Type_activite {
         this.distance = distance;
     }
 
-    public Activite_distance(String id, String nom, String description, double distance) {
+    public Activite_distance(int id, String nom, String description, double distance) {
         super(id, nom, description);
         this.distance = distance;
     }

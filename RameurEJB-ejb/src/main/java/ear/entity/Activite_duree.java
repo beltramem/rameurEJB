@@ -18,7 +18,7 @@ public class Activite_duree extends Type_activite {
         this.duree = duree;
     }
 
-    public Activite_duree(String id, String nom, String description, double duree) {
+    public Activite_duree(int id, String nom, String description, double duree) {
         super(id, nom, description);
         this.duree = duree;
     }

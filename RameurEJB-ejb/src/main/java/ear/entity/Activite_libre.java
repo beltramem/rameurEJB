@@ -7,7 +7,7 @@ import javax.persistence.Table;
 @Table(name = "activite_libre")
 public class Activite_libre extends Type_activite {
 
-    public Activite_libre(String id, String nom, String description, double duree) {
+    public Activite_libre(int id, String nom, String description, double duree) {
         super(id, nom, description);
     }
 

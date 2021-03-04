@@ -28,20 +28,22 @@ public class EntrainementRestfulClient {
         this.httpClient = new DefaultHttpClient();
     }
 
-    public Entrainement creationEntrainement(Type_activite type_activite) throws IOException {
+    public Entrainement creationEntrainement(int type_activite, int etat) throws IOException {
         try
         {
 
             HttpPost httpPost = new HttpPost(BASE_URI+"/creationEntrainement");
-
+            String id_type = String.valueOf(type_activite);
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("type_activite",type_activite.toString()));
-            params.add(new BasicNameValuePair("password", "pass"));
+            params.add(new BasicNameValuePair("type_activite",id_type));
+            params.add(new BasicNameValuePair("etat", String.valueOf(etat)));
             httpPost.setEntity(new UrlEncodedFormEntity(params));
 
             HttpResponse response = httpClient.execute(httpPost);
             HttpEntity httpEntity = response.getEntity();
             String apiOutput = EntityUtils.toString(httpEntity);
+
+            System.out.println(apiOutput);
             Gson gson = new GsonBuilder().create();
 
             Entrainement data = gson.fromJson(apiOutput, Entrainement.class);

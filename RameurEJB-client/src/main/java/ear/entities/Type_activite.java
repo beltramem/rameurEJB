@@ -14,7 +14,7 @@ public class Type_activite implements Serializable {
 
     //private static final long serialVersionUID = 0l;
 
-    private String id;
+    private int id;
 
     private String nom;
 
@@ -22,7 +22,7 @@ public class Type_activite implements Serializable {
 
 
 
-    public String getId() {
+    public int getId() {
 
         return id;
 
@@ -46,7 +46,7 @@ public class Type_activite implements Serializable {
 
 
 
-    public void setId(String id) {
+    public void setId(int id) {
 
         this.id = id;
 
@@ -70,7 +70,7 @@ public class Type_activite implements Serializable {
 
 
 
-    public Type_activite(String id, String nom, String description) {
+    public Type_activite(int id, String nom, String description) {
 
         this.id = id;
 
