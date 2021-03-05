@@ -23,6 +23,10 @@ public class Activite_distance extends Type_activite {
         this.distance = distance;
     }
 
+    public Activite_distance(){
+
+    }
+
     public Activite_distance(double distance) {
         this.distance = distance;
     }

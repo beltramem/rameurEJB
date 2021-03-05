@@ -12,7 +12,7 @@ import java.io.Serializable;
 
 
 import javax.persistence.*;
-
+import javax.xml.bind.annotation.XmlTransient;
 
 
 @Entity
@@ -20,6 +20,7 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 @NamedQueries({@NamedQuery(name=ALL_ACTIVITES, query="select o FROM Type_activite o"),
         @NamedQuery(name=PAR_ID, query="select o FROM Type_activite o WHERE o.id = :ID")})
+@XmlTransient
 public class Type_activite implements Serializable {
 
 

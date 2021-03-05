@@ -23,6 +23,9 @@ public class Activite_calories extends Type_activite {
         this.calorie_brulee = calorie_brulee;
     }
 
+    public Activite_calories() {
+    }
+
     public Activite_calories(double calorie_brulee) {
         this.calorie_brulee = calorie_brulee;
     }

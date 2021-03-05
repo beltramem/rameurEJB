@@ -4,10 +4,13 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import static ear.entity.Utilisateur.QN.ALL_COMPTE;
 import static ear.entity.Utilisateur.QN.FIND_COMPTE;
@@ -16,7 +19,6 @@ import static ear.entity.Utilisateur.QN.FIND_COMPTE;
 @Table(name = "utilisateur")
 @NamedQueries({@NamedQuery(name=ALL_COMPTE, query="select o FROM Utilisateur o"),
         @NamedQuery(name=FIND_COMPTE, query="select o FROM Utilisateur o WHERE o.identifiant = :ID")})
-@XmlRootElement
 public class Utilisateur implements Serializable {
 
     public static interface QN {
@@ -31,7 +33,7 @@ public class Utilisateur implements Serializable {
         String FIND_COMPTE = "utilisateur.findCompte";
     }
 
-    //private static final long serialVersionUID = 0l;
+    private static final long serialVersionUID = 1l;
     @Id
     private String identifiant;
     private String mdp;
@@ -39,17 +41,16 @@ public class Utilisateur implements Serializable {
     private String prenom;
     private double taille;
     private double poids;
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="CET")
-    private Date date_naissance;
+    //private Date date_naissance;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable( name = "participe_entrainement",
             joinColumns = @JoinColumn( name = "identifiant" ),
             inverseJoinColumns = @JoinColumn( name = "id" ) )
     private List<Entrainement> entrainements;
 
     @XmlTransient
+    @JsonIgnore
     public List<Entrainement> getEntrainements() {
         return entrainements;
     }
@@ -106,13 +107,13 @@ public class Utilisateur implements Serializable {
         this.poids = poids;
     }
 
-    public Date getDate_naissance() {
+   /*public Date getDate_naissance() {
         return this.date_naissance;
     }
 
     public void setDate_naissance(Date date_naissance) {
         this.date_naissance = date_naissance;
-    }
+    }*/
 
     public Utilisateur(String identifiant, String mdp, String nom, String prenom, double taille, double poids, Date date_naissance) {
         this.identifiant = identifiant;
@@ -121,7 +122,7 @@ public class Utilisateur implements Serializable {
         this.prenom = prenom;
         this.taille = taille;
         this.poids = poids;
-        this.date_naissance = date_naissance;
+       //this.date_naissance = date_naissance;
     }
 
     public Utilisateur()
@@ -137,7 +138,7 @@ public class Utilisateur implements Serializable {
                 ", prenom='" + prenom + '\'' +
                 ", taille=" + taille +
                 ", poids=" + poids +
-                ", date_naissance=" + date_naissance +
+                ", date_naissance=" + /*date_naissance*/ +
                 '}';
     }
 }

@@ -1,4 +1,6 @@
 package ear.entity;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -30,7 +32,9 @@ public class Entrainement implements Serializable {
 
    }
 
-    @Id
+    private static final long serialVersionUID = 0l;
+
+   @Id
     @GeneratedValue( strategy=GenerationType.IDENTITY )
     private int id;
     @ManyToOne
@@ -38,18 +42,14 @@ public class Entrainement implements Serializable {
     private Type_activite type_activite;
     private int etat;
     private Date date;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable( name = "participe_entrainement",
             joinColumns = @JoinColumn( name = "id" ),
             inverseJoinColumns = @JoinColumn( name = "identifiant" ) )
     private List<Utilisateur> participants;
 
-    public void add_participant(Utilisateur paticipant)
-    {
-
-    }
-
     @XmlTransient
+    @JsonIgnore
     public List<Utilisateur> getParticipants() {
         return participants;
     }
@@ -82,6 +82,7 @@ public class Entrainement implements Serializable {
         this.etat = etat;
     }
 
+
     public Date getDate() {
         return date;
     }
@@ -105,15 +106,24 @@ public class Entrainement implements Serializable {
         this.participants = new ArrayList<Utilisateur>();
     }
 
-    public Entrainement(Type_activite type_activite, int etat) {
+    public Entrainement(Type_activite type_activite, int etat, List<Utilisateur> participants) {
         this.type_activite = type_activite;
         this.etat = etat;
         this.date = new Date();
-        this.participants = new ArrayList<Utilisateur>();
+        this.participants = participants;
+    }
+
+    @Override
+    public String toString() {
+        return "Entrainement{" +
+                "id=" + id +
+                ", type_activite=" + type_activite +
+                ", etat=" + etat +
+                ", date=" + date +
+                ", participants=" + participants +
+                '}';
     }
 
     public Entrainement() {
-        this.date = new Date();
-        this.participants = new ArrayList<Utilisateur>();
     }
 }

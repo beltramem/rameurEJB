@@ -33,7 +33,7 @@ public class UtilisateurBean  implements  UtilisateurLocal, UtilisateurRemote{
     public void updateCompte(Utilisateur user) throws Exception
     {
         Query query = em.createNamedQuery(FIND_COMPTE);
-        query.setParameter("IO",user.getIdentifiant());
+        query.setParameter("ID",user.getIdentifiant());
         List<Utilisateur> utilisateur = query.getResultList();
         if (utilisateur.size() == 0) {
             throw new RuntimeException("compte introuvable");

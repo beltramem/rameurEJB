@@ -23,6 +23,10 @@ public class Activite_duree extends Type_activite {
         this.duree = duree;
     }
 
+    public Activite_duree(){
+
+    }
+
     public Activite_duree(double duree) {
         this.duree = duree;
     }

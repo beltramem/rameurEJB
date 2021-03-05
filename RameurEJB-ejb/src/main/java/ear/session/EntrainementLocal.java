@@ -9,9 +9,8 @@ import java.util.List;
 
 @Local
 public interface EntrainementLocal {
-    public Entrainement CreationEntrainement(int type, int etat);
+    public Entrainement CreationEntrainement(int type, int etat,String participant);
     public List<Entrainement> getEntrainementByUser(String identifiant);
     public List<Entrainement> getEntrainement();
     public List<Entrainement> getEntrainementByType(Type_activite type);
-    public void ajouterParticipant(String identifiant, int entrainement_id);
 }

@@ -1,7 +1,7 @@
-D:\cours\M2\rameurEJB\RameurEJB-client\src\main\java\ear\main\MainApplication.java
-D:\cours\M2\rameurEJB\RameurEJB-client\src\main\java\ear\ws\EntrainementRestfulClient.java
-D:\cours\M2\rameurEJB\RameurEJB-client\src\main\java\ear\main\GestionCompte.java
-D:\cours\M2\rameurEJB\RameurEJB-client\src\main\java\ear\entities\Entrainement.java
-D:\cours\M2\rameurEJB\RameurEJB-client\src\main\java\ear\entities\Type_activite.java
-D:\cours\M2\rameurEJB\RameurEJB-client\src\main\java\ear\entities\Utilisateur.java
-D:\cours\M2\rameurEJB\RameurEJB-client\src\main\java\ear\ws\UtilisateurRestfulClient.java
+/root/IdeaProjects/rameurEJB/RameurEJB-client/src/main/java/ear/ws/EntrainementRestfulClient.java
+/root/IdeaProjects/rameurEJB/RameurEJB-client/src/main/java/ear/main/GestionCompte.java
+/root/IdeaProjects/rameurEJB/RameurEJB-client/src/main/java/ear/entities/Entrainement.java
+/root/IdeaProjects/rameurEJB/RameurEJB-client/src/main/java/ear/entities/Utilisateur.java
+/root/IdeaProjects/rameurEJB/RameurEJB-client/src/main/java/ear/entities/Type_activite.java
+/root/IdeaProjects/rameurEJB/RameurEJB-client/src/main/java/ear/main/MainApplication.java
+/root/IdeaProjects/rameurEJB/RameurEJB-client/src/main/java/ear/ws/UtilisateurRestfulClient.java

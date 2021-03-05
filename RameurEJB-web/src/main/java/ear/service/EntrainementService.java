@@ -7,10 +7,7 @@ import ear.session.EntrainementLocal;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.awt.*;
 import java.util.List;
@@ -22,15 +19,24 @@ public class EntrainementService {
     @EJB
     private EntrainementLocal ent;
 
-    @POST
-    @Path("/creationEntrainement")
+    @GET
+    @Path("/creationEntrainement/{type_activite}/{etat}/{participant}")
     @Produces(MediaType.APPLICATION_JSON)
-    public void creationEntrainement(
+    public Entrainement creationEntrainement(
             @PathParam(value="type_activite")int type_activite,
             @PathParam(value="etat")int etat,
-            @PathParam(value="participant")String participant)
-    {
-        Entrainement e = ent.CreationEntrainement(type_activite,etat);
-        ent.ajouterParticipant(participant,e.getId());
+            @PathParam(value="participant")String participant) throws Exception {
+        try
+        {
+            Entrainement e =ent.CreationEntrainement(type_activite,etat,participant);
+            return e;
+        }catch(Exception e)
+        {
+            throw new Exception(e);
+        }
+
+
+
+
     }
 }

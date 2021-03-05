@@ -36,7 +36,8 @@ public class MainApplication {
         }*/
 
         EntrainementRestfulClient entr = new EntrainementRestfulClient();
-        Entrainement ent = entr.creationEntrainement(1,0);
+        Entrainement ent = entr.creationEntrainement(1,0,"beltramem");
+        System.out.println(ent.getDate());
 
     }
 }

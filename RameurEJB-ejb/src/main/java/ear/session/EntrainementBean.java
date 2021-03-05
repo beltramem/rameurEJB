@@ -11,9 +11,11 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 import static ear.entity.Entrainement.QN.FIND_ENTRAINEMENT;
+import static ear.entity.Type_activite.QN.ALL_ACTIVITES;
 import static ear.entity.Type_activite.QN.PAR_ID;
 import static ear.entity.Utilisateur.QN.FIND_COMPTE;
 
@@ -27,29 +29,29 @@ public class EntrainementBean implements EntrainementLocal, EntrainementRemote {
 
 
 
-    public Entrainement CreationEntrainement(int type_id, int etat){
+    public Entrainement CreationEntrainement(int type_id, int etat,String participant){
+
+
+
+
+        //System.out.println(type_id);
         Query query = em.createNamedQuery(PAR_ID);
+
         query.setParameter("ID",type_id);
+        System.out.println(type_id);
         List<Type_activite> activite = query.getResultList();
         System.out.println(activite.size());
-        Entrainement ent = new Entrainement(activite.get(0),0);
+
+        Query query2 = em.createNamedQuery(FIND_COMPTE);
+        query2.setParameter("ID",participant);
+        List<Utilisateur> participants = query2.getResultList();
+
+
+        Entrainement ent = new Entrainement(activite.get(0),0,participants);
         em.persist(ent);
         return ent;
     }
 
-    public void ajouterParticipant(String identifiant, int entrainement_id)
-    {
-        Query query = em.createNamedQuery(FIND_ENTRAINEMENT);
-        query.setParameter("IO",entrainement_id);
-        List<Entrainement> entrainements = query.getResultList();
-
-        Query query2 = em.createNamedQuery(FIND_COMPTE);
-        query2.setParameter("IO",identifiant);
-        List<Utilisateur> utilisateur = query2.getResultList();
-
-        entrainements.get(0).add_participant(utilisateur.get(0));
-
-    }
 
 
     public List<Entrainement> getEntrainementByUser(String identifiant) {
