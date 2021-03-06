@@ -5,6 +5,7 @@ import javax.ejb.Stateless;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
+import ear.entity.Entrainement;
 import ear.entity.Utilisateur;
 import ear.session.UtilisateurLocal;
 
@@ -18,9 +19,10 @@ public class UtilisateurService {
 
 
     @POST
-    @Path("/creationCompte/")
+    @Path("/creationCompte")
     @Produces(MediaType.APPLICATION_JSON)
-    public void creationCompte (
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Utilisateur creationCompte (
             @PathParam(value="identifiant") String identifiant,
             @PathParam(value="mdp") String mdp,
             @PathParam(value="nom")String nom,
@@ -28,7 +30,15 @@ public class UtilisateurService {
             @PathParam(value="taille")float taille,
             @PathParam(value="poids")float poids,
             @PathParam(value="date_naissance")Date date_naissance) throws Exception {
-        user.creationCompte(identifiant,mdp,nom,prenom,taille,poids,date_naissance);
+        try{
+            Utilisateur u= user.creationCompte(identifiant,mdp,nom,prenom,taille,poids,date_naissance);
+            System.out.println(u);
+            return u;
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e);
+        }
     }
 
     @GET

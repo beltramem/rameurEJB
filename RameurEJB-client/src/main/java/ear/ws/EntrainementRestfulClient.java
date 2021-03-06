@@ -34,9 +34,6 @@ public class EntrainementRestfulClient {
     public Entrainement creationEntrainement(int type_activite, int etat, String participant) throws IOException {
         try {
             String uri = BASE_URI + "/creationEntrainement" + "/" + type_activite + "/" + etat + "/"+ participant;
-            System.out.println(uri);
-
-
             HttpGet getRequest = new HttpGet(uri);
             HttpResponse response = httpClient.execute(getRequest);
             int statusCode = response.getStatusLine().getStatusCode();
@@ -45,6 +42,7 @@ public class EntrainementRestfulClient {
             }
             HttpEntity httpEntity = response.getEntity();
             String apiOutput = EntityUtils.toString(httpEntity);
+            System.out.println(apiOutput);
             Gson gson = new GsonBuilder()
                     .setDateFormat("yyyy-MM-dd")
                     .create();
@@ -58,4 +56,6 @@ public class EntrainementRestfulClient {
             httpClient.getConnectionManager().shutdown();
         }
     }
+
+
 }

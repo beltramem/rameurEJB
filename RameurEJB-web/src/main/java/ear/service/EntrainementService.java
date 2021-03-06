@@ -26,6 +26,7 @@ public class EntrainementService {
             @PathParam(value="type_activite")int type_activite,
             @PathParam(value="etat")int etat,
             @PathParam(value="participant")String participant) throws Exception {
+        System.out.println("MA GROSSE BITE");
         try
         {
             Entrainement e =ent.CreationEntrainement(type_activite,etat,participant);

@@ -10,9 +10,12 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class GestionCompte {
+    private UtilisateurRestfulClient utilisateurRestfulClient;
 
     public GestionCompte() {
+        this.utilisateurRestfulClient = new UtilisateurRestfulClient();
     }
+
 
     public Utilisateur Connexion() throws Exception {
         Utilisateur utilisateur = new Utilisateur();
@@ -24,7 +27,7 @@ public class GestionCompte {
             String user = sc.nextLine();
             System.out.println("Mot de passe: ");
             String pass = sc.nextLine();
-            UtilisateurRestfulClient utilisateurRestfulClient = new UtilisateurRestfulClient();
+
             try {
                 utilisateur = utilisateurRestfulClient.connexion(user, pass);
 
@@ -35,7 +38,8 @@ public class GestionCompte {
         return utilisateur;
     }
 
-    public Utilisateur CreationCompte() throws Exception {
+    public void CreationCompte() throws Exception {
+        UtilisateurRestfulClient utilisateurRestfulClient = new UtilisateurRestfulClient();
         Scanner sc= new Scanner(System.in);
         System.out.println("Création d'un compte: \nIdentifiant: ");
         String user = sc.nextLine();
@@ -43,28 +47,40 @@ public class GestionCompte {
         String pass = sc.nextLine();
         System.out.println("Nom: ");
         String name = sc.nextLine();
+        System.out.println("prenom: ");
+        String surname = sc.nextLine();
         System.out.println("Date de naissance (dd/MM/yyyy): ");
         String birthdate = sc.nextLine();
+        Date date1= new Date();
         try {
-            Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(birthdate);
+            date1=new SimpleDateFormat("dd/MM/yyyy").parse(birthdate);
         }catch (Exception e){
             System.out.println(e);
         }
         boolean error = true;
+        float weight=0;
+        float height=0;
         while(error) {
             error = false;
             System.out.println("Poids: ");
             try{
-                double weight = sc.nextDouble();
+                weight = sc.nextFloat();
                 System.out.println("Taille: ");
-                double height = sc.nextDouble();
+                height = sc.nextFloat();
             }catch (Exception e){
                 System.out.println(e);
                 error = true;
             }
-
-
         }
-        return  new Utilisateur();
+        try {
+            UtilisateurRestfulClient utilisateurRestfulCliet = new UtilisateurRestfulClient();
+                    utilisateurRestfulCliet.creationCompte(user,pass,name,surname,weight,height,date1);
+            System.out.println("ta mere");
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e);
+        }
+
     }
 }

@@ -1,6 +1,7 @@
 package ear.entity;
+
+
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ public class Entrainement implements Serializable {
     @JoinColumn(name="type_activite",referencedColumnName = "id")
     private Type_activite type_activite;
     private int etat;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date date;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable( name = "participe_entrainement",
@@ -48,8 +50,6 @@ public class Entrainement implements Serializable {
             inverseJoinColumns = @JoinColumn( name = "identifiant" ) )
     private List<Utilisateur> participants;
 
-    @XmlTransient
-    @JsonIgnore
     public List<Utilisateur> getParticipants() {
         return participants;
     }

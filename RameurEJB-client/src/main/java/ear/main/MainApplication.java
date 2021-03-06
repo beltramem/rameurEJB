@@ -3,7 +3,9 @@ package ear.main;
 import ear.entities.Entrainement;
 import ear.entities.Utilisateur;
 import ear.ws.EntrainementRestfulClient;
+import ear.ws.UtilisateurRestfulClient;
 
+import java.util.Date;
 import java.util.Scanner;
 
 public class MainApplication {
@@ -11,7 +13,7 @@ public class MainApplication {
 
 
     public static void main(String[] args) throws Exception {
-        /*GestionCompte c= new GestionCompte();
+        GestionCompte c= new GestionCompte();
         boolean tmp=true;
         while(tmp)
         {
@@ -27,17 +29,31 @@ public class MainApplication {
 
             }
             else if (choix.equals("2")){
-                Utilisateur usr = c.CreationCompte();
-                System.out.println(usr.getIdentifiant());
+                c.CreationCompte();
+                System.out.println("création réussit");
             }
             else{
                 tmp = true;
             }
-        }*/
+        }
 
-        EntrainementRestfulClient entr = new EntrainementRestfulClient();
-        Entrainement ent = entr.creationEntrainement(1,0,"beltramem");
-        System.out.println(ent.getDate());
+        /*EntrainementRestfulClient entr = new EntrainementRestfulClient();
+        Entrainement ent = entr.creationEntrainement(1,0,"betramem");
+        System.out.println(ent.toString());*/
 
+        System.out.println("Menu principal:");
+        System.out.println("1 : s'entrainer");
+        System.out.println("2 : participer à une course");
+
+        Scanner sc= new Scanner(System.in);
+        String choix = sc.nextLine();
+        switch (choix)
+        {
+            case "1":
+
+        }
     }
+
+
+
 }

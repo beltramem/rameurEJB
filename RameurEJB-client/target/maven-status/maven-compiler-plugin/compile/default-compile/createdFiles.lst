@@ -1,7 +1,7 @@
-ear/entities/Type_activite.class
-ear/ws/EntrainementRestfulClient.class
-ear/entities/Entrainement.class
-ear/main/GestionCompte.class
-ear/main/MainApplication.class
-ear/entities/Utilisateur.class
-ear/ws/UtilisateurRestfulClient.class
+ear\entities\Utilisateur.class
+ear\entities\Type_activite.class
+ear\entities\Entrainement.class
+ear\main\MainApplication.class
+ear\main\GestionCompte.class
+ear\ws\UtilisateurRestfulClient.class
+ear\ws\EntrainementRestfulClient.class

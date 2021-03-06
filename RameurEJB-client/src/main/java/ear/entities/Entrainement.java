@@ -87,5 +87,16 @@ public class Entrainement implements Serializable {
         this.date = new Date();
         this.participants = new ArrayList<Utilisateur>();
     }
+
+    @Override
+    public String toString() {
+        return "Entrainement{" +
+                "id=" + id +
+                ", type_activite=" + type_activite +
+                ", etat=" + etat +
+                ", date=" + date +
+                ", participants=" + participants +
+                '}';
+    }
 }
 

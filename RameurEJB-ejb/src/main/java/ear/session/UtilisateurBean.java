@@ -19,13 +19,16 @@ public class UtilisateurBean  implements  UtilisateurLocal, UtilisateurRemote{
     @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
-    public void creationCompte(String identifiant, String mdp, String nom, String prenom, double taille, double poids, Date date_naissance) throws Exception {
+    public Utilisateur creationCompte(String identifiant, String mdp, String nom, String prenom, double taille, double poids, Date date_naissance) throws Exception {
         Query query = em.createNamedQuery(FIND_COMPTE);
         query.setParameter("ID", identifiant);
         List<Utilisateur> uExist = query.getResultList();
         if (uExist.size() == 0) {
+            System.out.println("cc"+identifiant);
             Utilisateur u = new Utilisateur(identifiant, mdp, nom, prenom, taille, poids, date_naissance);
+            System.out.println(u.toString());
             em.persist(u);
+            return u;
         }
         else throw new RuntimeException("compte Existant");
     }

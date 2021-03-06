@@ -9,8 +9,9 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import static ear.entity.Utilisateur.QN.ALL_COMPTE;
 import static ear.entity.Utilisateur.QN.FIND_COMPTE;
@@ -41,7 +42,8 @@ public class Utilisateur implements Serializable {
     private String prenom;
     private double taille;
     private double poids;
-    //private Date date_naissance;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    private Date date_naissance;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable( name = "participe_entrainement",
@@ -107,13 +109,13 @@ public class Utilisateur implements Serializable {
         this.poids = poids;
     }
 
-   /*public Date getDate_naissance() {
+   public Date getDate_naissance() {
         return this.date_naissance;
     }
 
     public void setDate_naissance(Date date_naissance) {
         this.date_naissance = date_naissance;
-    }*/
+    }
 
     public Utilisateur(String identifiant, String mdp, String nom, String prenom, double taille, double poids, Date date_naissance) {
         this.identifiant = identifiant;
@@ -122,7 +124,7 @@ public class Utilisateur implements Serializable {
         this.prenom = prenom;
         this.taille = taille;
         this.poids = poids;
-       //this.date_naissance = date_naissance;
+        this.date_naissance = date_naissance;
     }
 
     public Utilisateur()
@@ -138,7 +140,7 @@ public class Utilisateur implements Serializable {
                 ", prenom='" + prenom + '\'' +
                 ", taille=" + taille +
                 ", poids=" + poids +
-                ", date_naissance=" + /*date_naissance*/ +
+                ", date_naissance=" + date_naissance +
                 '}';
     }
 }
