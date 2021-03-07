@@ -86,10 +86,12 @@ public class Type_activite implements Serializable {
 
     }
 
-
-
-
-
-
-
+    @Override
+    public String toString() {
+        return "Type_activite{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

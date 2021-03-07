@@ -8,8 +8,11 @@ D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\UtilisateurBean.ja
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\entity\Mesure_moyenne.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\entity\Mesure.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\entity\Activite_distance.java
+D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\TypeActiviteBean.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\UtilisateurRemote.java
+D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\TypeActiviteRemote.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\entity\Activite_duree.java
+D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\TypeActiviteLocal.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\UtilisateurLocal.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\entity\Activite_libre.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\entity\Activite_calories.java

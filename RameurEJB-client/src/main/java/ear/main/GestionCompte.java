@@ -73,9 +73,8 @@ public class GestionCompte {
             }
         }
         try {
-            UtilisateurRestfulClient utilisateurRestfulCliet = new UtilisateurRestfulClient();
-                    utilisateurRestfulCliet.creationCompte(user,pass,name,surname,weight,height,date1);
-            System.out.println("ta mere");
+
+                    this.utilisateurRestfulClient.creationCompte(user,pass,name,surname,weight,height,date1);
         }
         catch (Exception e)
         {

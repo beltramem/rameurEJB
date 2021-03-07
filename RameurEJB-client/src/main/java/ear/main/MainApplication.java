@@ -14,26 +14,22 @@ public class MainApplication {
 
     public static void main(String[] args) throws Exception {
         GestionCompte c= new GestionCompte();
-        boolean tmp=true;
-        while(tmp)
+        Utilisateur usr = null;
+        while(usr==null)
         {
-            tmp = false;
             System.out.println("Si vous avez déjà un compte, tapez '1'. \n Si vous souhaitez créer un compte tapez '2':");
             Scanner sc= new Scanner(System.in);
             String choix = sc.nextLine();
             System.out.println(choix);
             if(choix.equals("1"))
             {
-                Utilisateur usr = c.Connexion();
+                usr = c.Connexion();
                 System.out.println(usr.getIdentifiant());
 
             }
             else if (choix.equals("2")){
                 c.CreationCompte();
                 System.out.println("création réussit");
-            }
-            else{
-                tmp = true;
             }
         }
 
@@ -51,6 +47,16 @@ public class MainApplication {
         {
             case "1":
 
+                EntrainementGestion eg = new EntrainementGestion();
+                System.out.println("1: créer un entrainement solo");
+                System.out.println("2: créer un entrainement coop");
+                System.out.println("3: rejoindre un entrainement coop");
+                String subChoix = sc.nextLine();
+                switch (subChoix)
+                {
+                    case "1":
+                        eg.creerEntrainementSolo(usr);
+                }
         }
     }
 
