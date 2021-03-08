@@ -4,18 +4,14 @@ import ear.entity.Entrainement;
 import ear.entity.Type_activite;
 import ear.entity.Utilisateur;
 
-import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
-import static ear.entity.Entrainement.QN.FIND_ENTRAINEMENT;
-import static ear.entity.Type_activite.QN.ALL_ACTIVITES;
 import static ear.entity.Type_activite.QN.PAR_ID;
 import static ear.entity.Utilisateur.QN.FIND_COMPTE;
 

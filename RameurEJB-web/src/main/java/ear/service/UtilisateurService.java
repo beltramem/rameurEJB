@@ -5,7 +5,6 @@ import javax.ejb.Stateless;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-import ear.entity.Entrainement;
 import ear.entity.Utilisateur;
 import ear.session.UtilisateurLocal;
 

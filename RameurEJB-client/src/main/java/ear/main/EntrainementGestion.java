@@ -1,7 +1,7 @@
 package ear.main;
 
-import ear.entities.Activite_duree;
-import ear.entities.Utilisateur;
+import ear.entity.Activite_duree;
+import ear.entity.Utilisateur;
 import ear.model.Entrainement;
 import ear.model.EntrainementDuree;
 import ear.ws.EntrainementRestfulClient;
@@ -35,8 +35,8 @@ public class EntrainementGestion {
                 }
                 int subChoix = sc.nextInt();
 
-                ear.entities.Entrainement entdata = erc.creationEntrainement(subChoix,0, usr.getIdentifiant());
-                String queu = "Entrainement_"+usr.getIdentifiant();
+                ear.entity.Entrainement entdata = erc.creationEntrainement(subChoix,0, usr.getIdentifiant());
+                String queu = usr.getIdentifiant();
                 Entrainement ent = new EntrainementDuree(entdata,queu,usr,activites.get(subChoix-1).getDuree());
                 ent.lancerEntrainementSolo();
 

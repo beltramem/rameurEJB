@@ -1,16 +1,13 @@
 package ear.service;
 
 import ear.entity.Entrainement;
-import ear.entity.Type_activite;
-import ear.entity.Utilisateur;
+import ear.message.Consumer;
 import ear.session.EntrainementLocal;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.awt.*;
-import java.util.List;
 
 @Stateless
 @Path("/EntrainementService")
@@ -29,6 +26,8 @@ public class EntrainementService {
         try
         {
             Entrainement e =ent.CreationEntrainement(type_activite,etat,participant);
+            Consumer consume = new Consumer(participant);
+            consume.getMessage();
             return e;
         }catch(Exception e)
         {

@@ -82,14 +82,15 @@ public class Mesure implements Serializable {
 
     //private static final long serialVersionUID = 0l;
 
+    private static final long serialVersionUID = 1L;
     @Id
-    private String id;
+    private int id;
 
     private String identifiant_utilisateur;
 
-    private String id_course;
+    private Integer id_course;
 
-    private String id_entrainement;
+    private Integer id_entrainement;
 
     private Date date;
 
@@ -104,14 +105,23 @@ public class Mesure implements Serializable {
     private double rythme_cardiaque;
 
 
+    @Override
+    public String toString() {
+        return "Mesure{" +
+                "id=" + id +
+                ", identifiant_utilisateur='" + identifiant_utilisateur + '\'' +
+                ", id_course=" + id_course +
+                ", id_entrainement=" + id_entrainement +
+                ", date=" + date +
+                ", vitesse=" + vitesse +
+                ", distance_parcourue=" + distance_parcourue +
+                ", calories_brulees=" + calories_brulees +
+                ", puissance_developpe=" + puissance_developpe +
+                ", rythme_cardiaque=" + rythme_cardiaque +
+                '}';
+    }
 
-
-
-
-
-
-
-    public String getId() {
+    public int getId() {
 
         return id;
 
@@ -119,7 +129,7 @@ public class Mesure implements Serializable {
 
 
 
-    public void setId(String identifiant) {
+    public void setId(int identifiant) {
 
         this.id = identifiant;
 
@@ -143,7 +153,7 @@ public class Mesure implements Serializable {
 
 
 
-    public String getId_course() {
+    public Integer getId_course() {
 
         return id_course;
 
@@ -151,7 +161,7 @@ public class Mesure implements Serializable {
 
 
 
-    public void setId_course(String identifiant) {
+    public void setId_course(Integer identifiant) {
 
         this.id_course = identifiant;
 
@@ -159,7 +169,7 @@ public class Mesure implements Serializable {
 
 
 
-    public String getId_entrainement() {
+    public Integer getId_entrainement() {
 
         return id_entrainement;
 
@@ -167,7 +177,7 @@ public class Mesure implements Serializable {
 
 
 
-    public void setId_entrainement(String identifiant) {
+    public void setId_entrainement(Integer identifiant) {
 
         this.id_entrainement = identifiant;
 
@@ -271,9 +281,7 @@ public class Mesure implements Serializable {
 
 
 
-    public Mesure(String id, String identifiant_utilisateur, String id_course, String id_entrainement, Date date, double vitesse, double distance_parcourue, double calories_brulees, double puissance_develloppe) {
-
-        this.id = id;
+    public Mesure(String identifiant_utilisateur, Integer id_course, Integer id_entrainement, Date date, double vitesse, double distance_parcourue, double calories_brulees, double puissance_develloppe) {
 
         this.identifiant_utilisateur = identifiant_utilisateur;
 
@@ -303,9 +311,8 @@ public class Mesure implements Serializable {
 
 
 
-    public Mesure(String id, String identifiant_utilisateur, String id_course, String id_entrainement, Date date, double vitesse, double distance_parcourue, double calories_brulees, double puissance_develloppe, double rythme_cardiaque) {
+    public Mesure(String identifiant_utilisateur, Integer id_course, Integer id_entrainement, Date date, double vitesse, double distance_parcourue, double calories_brulees, double puissance_develloppe, double rythme_cardiaque) {
 
-        this.id = id;
 
         this.identifiant_utilisateur = identifiant_utilisateur;
 

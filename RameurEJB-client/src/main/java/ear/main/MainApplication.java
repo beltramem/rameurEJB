@@ -1,11 +1,6 @@
 package ear.main;
 
-import ear.entities.Entrainement;
-import ear.entities.Utilisateur;
-import ear.ws.EntrainementRestfulClient;
-import ear.ws.UtilisateurRestfulClient;
-
-import java.util.Date;
+import ear.entity.Utilisateur;
 import java.util.Scanner;
 
 public class MainApplication {

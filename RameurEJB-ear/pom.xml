@@ -51,12 +51,6 @@
             <artifactId>RameurEJB-ejb</artifactId>
             <type>ejb</type>
         </dependency>
-        <dependency>
-            <groupId>ear</groupId>
-            <artifactId>RameurEJB-client</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
-        </dependency>
     </dependencies>
 
     <build>

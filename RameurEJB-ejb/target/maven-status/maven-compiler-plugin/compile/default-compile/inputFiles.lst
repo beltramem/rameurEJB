@@ -1,3 +1,4 @@
+D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\MesureLocal.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\EntrainementRemote.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\entity\Type_activite.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\EntrainementLocal.java
@@ -10,6 +11,8 @@ D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\entity\Mesure.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\entity\Activite_distance.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\TypeActiviteBean.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\UtilisateurRemote.java
+D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\MesureBean.java
+D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\MesureRemote.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\TypeActiviteRemote.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\entity\Activite_duree.java
 D:\cours\M2\rameurEJB\RameurEJB-ejb\src\main\java\ear\session\TypeActiviteLocal.java

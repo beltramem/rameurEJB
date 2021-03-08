@@ -1,10 +1,8 @@
 package ear.main;
 
-import ear.entities.Utilisateur;
+import ear.entity.Utilisateur;
 import ear.ws.UtilisateurRestfulClient;
 
-import javax.rmi.CORBA.Util;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;

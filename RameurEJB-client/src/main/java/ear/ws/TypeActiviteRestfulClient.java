@@ -2,8 +2,7 @@ package ear.ws;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import ear.entities.Activite_duree;
-import ear.entities.Utilisateur;
+import ear.entity.Activite_duree;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;

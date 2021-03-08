@@ -2,7 +2,6 @@ package ear.session;
 
 import ear.entity.Entrainement;
 import ear.entity.Type_activite;
-import ear.entity.Utilisateur;
 
 import javax.ejb.Local;
 import java.util.List;

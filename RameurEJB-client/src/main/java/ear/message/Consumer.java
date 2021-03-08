@@ -11,6 +11,8 @@ import org.apache.commons.lang.SerializationUtils;
 
 
 public class Consumer {
+
+
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
@@ -26,6 +28,7 @@ public class Consumer {
                 System.out.println("message recu");
                 Object mesure = SerializationUtils.deserialize(byteMessage);
                 System.out.println(" [x] Received '" + mesure.toString() + "'");
+
         };
             /*String message = new String(delivery.getBody(), "UTF-8");
             System.out.println(" [x] Received '" + message + "'");*/

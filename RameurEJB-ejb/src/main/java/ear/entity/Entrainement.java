@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlTransient;
 
 import static ear.entity.Entrainement.QN.ALL_ENTRAINEMENT;
 import static ear.entity.Entrainement.QN.FIND_ENTRAINEMENT;

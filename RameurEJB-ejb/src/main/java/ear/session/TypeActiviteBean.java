@@ -2,8 +2,6 @@ package ear.session;
 
 
 import ear.entity.Activite_duree;
-import ear.entity.Type_activite;
-import ear.entity.Utilisateur;
 
 import javax.ejb.Local;
 import javax.ejb.Remote;
