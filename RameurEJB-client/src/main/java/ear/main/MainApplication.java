@@ -40,18 +40,32 @@ public class MainApplication {
         String choix = sc.nextLine();
         switch (choix)
         {
-            case "1":
+            case "1": {
 
                 EntrainementGestion eg = new EntrainementGestion();
                 System.out.println("1: créer un entrainement solo");
                 System.out.println("2: créer un entrainement coop");
                 System.out.println("3: rejoindre un entrainement coop");
                 String subChoix = sc.nextLine();
-                switch (subChoix)
-                {
+                switch (subChoix) {
                     case "1":
                         eg.creerEntrainementSolo(usr);
                 }
+
+            }
+
+            case "2":{
+                CourseGestion cg = new CourseGestion();
+                System.out.println("1: Faire course contre IA");
+                System.out.println("2: Faire course contre joueur");
+                String subChoix = sc.nextLine();
+                switch (subChoix) {
+                    case "1":
+                        cg.creerCourseIA(usr);
+                    case "2":
+
+                }
+            }
         }
     }
 

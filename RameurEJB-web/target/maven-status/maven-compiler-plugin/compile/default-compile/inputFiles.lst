@@ -1,4 +1,5 @@
 /root/IdeaProjects/rameurEJB/RameurEJB-web/src/main/java/ear/model/ResponseList.java
+/root/IdeaProjects/rameurEJB/RameurEJB-web/src/main/java/ear/service/CourseService.java
 /root/IdeaProjects/rameurEJB/RameurEJB-web/src/main/java/ear/service/EntrainementService.java
 /root/IdeaProjects/rameurEJB/RameurEJB-web/src/main/java/ear/message/Consumer.java
 /root/IdeaProjects/rameurEJB/RameurEJB-web/src/main/java/ear/service/UtilisateurService.java

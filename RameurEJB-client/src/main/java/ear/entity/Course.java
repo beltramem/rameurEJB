@@ -2,7 +2,9 @@ package ear.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 public class Course implements Serializable {
@@ -12,7 +14,15 @@ public class Course implements Serializable {
     private Type_activite type_activite;
     private int etat;
     private Date date;
+    private List<Utilisateur> participants;
 
+    public List<Utilisateur> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(List<Utilisateur> participants) {
+        this.participants = participants;
+    }
 
     public int getId() {
         return id;
@@ -51,8 +61,34 @@ public class Course implements Serializable {
         this.type_activite = type_activite;
         this.etat = etat;
         this.date = date;
+        this.participants = new ArrayList<Utilisateur>();
     }
 
+    public Course(Type_activite type_activite, int etat, Date date) {
+        this.type_activite = type_activite;
+        this.etat = etat;
+        this.date = date;
+        this.participants = new ArrayList<Utilisateur>();
+    }
+
+    public Course(Type_activite type_activite, int etat,List<Utilisateur> participants) {
+        this.type_activite = type_activite;
+        this.etat = etat;
+        this.date = new Date();
+        this.participants = participants;
+    }
     public Course() {
+        this.date = new Date();
+        this.participants = new ArrayList<Utilisateur>();
+    }
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", type_activite=" + type_activite +
+                ", etat=" + etat +
+                ", date=" + date +
+                ", participants=" + participants +
+                '}';
     }
 }

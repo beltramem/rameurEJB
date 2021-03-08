@@ -7,6 +7,7 @@ ear/entity/Mesure.class
 ear/entity/Mesure_moyenne.class
 ear/entity/Entrainement.class
 ear/session/TypeActiviteBean.class
+ear/session/CourseLocal.class
 ear/entity/Activite_duree.class
 ear/session/EntrainementRemote.class
 ear/entity/Activite_libre.class
@@ -16,6 +17,7 @@ ear/session/TypeActiviteLocal.class
 ear/entity/Entrainement$QN.class
 ear/session/MesureLocal.class
 ear/entity/Activite_calories.class
+ear/session/CourseBean.class
 ear/session/TypeActiviteRemote.class
 ear/session/UtilisateurRemote.class
 ear/entity/Utilisateur$QN.class
@@ -26,4 +28,5 @@ ear/entity/Mesure$QN.class
 ear/entity/Activite_distance.class
 ear/session/UtilisateurBean.class
 ear/entity/Activite_series.class
+ear/session/CourseRemote.class
 ear/session/EntrainementLocal.class

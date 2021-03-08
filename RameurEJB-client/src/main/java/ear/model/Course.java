@@ -4,15 +4,18 @@ import ear.entity.Mesure;
 import ear.entity.Utilisateur;
 import ear.message.Consumer;
 import ear.message.Sender;
+import ear.rower.RowerLink;
 
 import java.util.Date;
 
-public abstract class Course {
+public abstract class Course implements CourseVShumain, CourseVia{
     protected ear.entity.Course courseData;
     protected Sender senderData;
     protected Sender senderTopic;
     protected Consumer consumer;
     protected Utilisateur utilisateur;
+
+    protected RowerLink rl;
 
     public Mesure mesureAleatoire(String pIdUtilisateur, Integer pIdCourse, Integer pIdEntrainement) {
 
@@ -27,5 +30,13 @@ public abstract class Course {
         Integer rythmeCardiaque = (int) (Math.random() * 200) + 60;
 
         return new Mesure(idUtilisateur, d, vitesse, distanceParcourue, caloriesBrulees, puissanceDevellopee, rythmeCardiaque, idCourse, idEntrainement);
+    }
+
+    public Course(ear.entity.Course courseData, String queu, String topic, Utilisateur usr) {
+        this.courseData = courseData;
+        this.senderData = new Sender(queu);
+        this.senderTopic = new Sender(topic);
+        this.utilisateur = usr;
+        this.rl = new RowerLink();
     }
 }

@@ -4,4 +4,5 @@ ear/message/Consumer.class
 ear/service/EntrainementService.class
 ear/service/UtilisateurService.class
 ear/model/ResponseList.class
+ear/service/CourseService.class
 ear/message/Consumer$1.class
