@@ -23,8 +23,8 @@ public abstract class Course {
         double vitesse = (Math.random() * 7) + 0;
         double distanceParcourue = (Math.random() * 100) + 1;
         double caloriesBrulees = (Math.random() * 200) + 1;
-        double puissanceDevellopee = (Math.random() * 150) + 5;
-        double rythmeCardiaque = (Math.random() * 200) + 60;
+        Integer puissanceDevellopee = (int)(Math.random() * 150) + 5;
+        Integer rythmeCardiaque = (int) (Math.random() * 200) + 60;
 
         return new Mesure(idUtilisateur, d, vitesse, distanceParcourue, caloriesBrulees, puissanceDevellopee, rythmeCardiaque, idCourse, idEntrainement);
     }

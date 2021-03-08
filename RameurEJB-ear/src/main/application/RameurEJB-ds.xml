@@ -29,7 +29,7 @@
         <driver>postgresql-42.2.19.jar</driver>
         <security>
             <user-name>rameuradmin</user-name>
-            <password>admin</password>
+            <password>root</password>
         </security>
     </datasource>
 </datasources>

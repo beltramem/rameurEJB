@@ -118,6 +118,14 @@
 
         </dependency>
 
+        <dependency>
+            <groupId>com.rameur</groupId>
+            <artifactId>sample</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/src/main/resources/javarow-0.1-jar-with-dependencies.jar</systemPath>
+        </dependency>
+
 
     </dependencies>
 

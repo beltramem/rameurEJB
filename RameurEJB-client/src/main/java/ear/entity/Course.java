@@ -4,9 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-import static ear.entity.Course.QN.ALL_COURSE;
-import static ear.entity.Course.QN.FIND_COURSE;
-
 
 public class Course implements Serializable {
 

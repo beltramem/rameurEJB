@@ -27,7 +27,7 @@ public class Consumer {
     private static String USERNAME = "rameuradmin";
 
     // Database password.
-    private static String PASSWORD = "admin";
+    private static String PASSWORD = "root";
 
     public static Statement connectToPostgres() {
 
@@ -38,7 +38,7 @@ public class Consumer {
 
             return stmt;
         } catch (Exception e) {
-            System.out.println(String.format("Error while connecting to the MySQL [%s]. [%s]", e.getMessage(), e));
+            System.out.println(String.format("Error while connecting to the postgres [%s]. [%s]", e.getMessage(), e));
         }
 
         return null;

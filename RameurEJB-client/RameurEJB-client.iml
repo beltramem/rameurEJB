@@ -47,5 +47,14 @@
     <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.cassandra:cassandra-thrift:0.8.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.stephenc:jamm:0.2.2" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: com.rameur:sample:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/resources/javarow-0.1-jar-with-dependencies.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

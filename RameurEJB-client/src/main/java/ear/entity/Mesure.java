@@ -13,11 +13,19 @@ public class Mesure implements Serializable {
     private double vitesse;
     private double distance_parcourue;
     private double calories_brulees;
-    private double puissance_developpe;
-    private double rythme_cardiaque;
+    private Integer puissance_developpe;
+    private Integer rythme_cardiaque;
     private Integer id_course;
     private Integer id_entrainement;
+    transient int nbCoup=0;
 
+    public int getNbCoup() {
+        return nbCoup;
+    }
+
+    public void setNbCoup(int nbCoup) {
+        this.nbCoup = nbCoup;
+    }
 
     public int getId() {
         return id;
@@ -67,19 +75,19 @@ public class Mesure implements Serializable {
         this.calories_brulees = calories_brulees;
     }
 
-    public double getPuissance_developpe() {
+    public Integer getPuissance_developpe() {
         return puissance_developpe;
     }
 
-    public void setPuissance_developpe(double puissance_developpe) {
+    public void setPuissance_developpe(Integer puissance_developpe) {
         this.puissance_developpe = puissance_developpe;
     }
 
-    public double getRythme_cardiaque() {
+    public Integer getRythme_cardiaque() {
         return rythme_cardiaque;
     }
 
-    public void setRythme_cardiaque(int rythme_cardiaque) {
+    public void setRythme_cardiaque(Integer rythme_cardiaque) {
         this.rythme_cardiaque = rythme_cardiaque;
     }
 
@@ -99,7 +107,7 @@ public class Mesure implements Serializable {
         this.id_entrainement = getIdentifiant_entrainement;
     }
 
-    public Mesure(String identifiant_utilisateur, Date date, double vitesse, double distance_parcourue, double calories_brulees, double puissance_developpe, double rythme_cardiaque, Integer identifiant_course, Integer identifiant_entrainement) {
+    public Mesure(String identifiant_utilisateur, Date date, double vitesse, double distance_parcourue, double calories_brulees, Integer puissance_developpe, Integer rythme_cardiaque, Integer identifiant_course, Integer identifiant_entrainement) {
         this.identifiant_utilisateur = identifiant_utilisateur;
         this.id_course = identifiant_course;
         this.id_entrainement = identifiant_entrainement;
@@ -109,6 +117,19 @@ public class Mesure implements Serializable {
         this.calories_brulees = calories_brulees;
         this.puissance_developpe = puissance_developpe;
         this.rythme_cardiaque = rythme_cardiaque;
+    }
+
+    public Mesure(String identifiant_utilisateur, Date date, double vitesse, double distance_parcourue, double calories_brulees, Integer puissance_developpe, Integer rythme_cardiaque, Integer identifiant_course, Integer identifiant_entrainement, int nbCoup) {
+        this.identifiant_utilisateur = identifiant_utilisateur;
+        this.id_course = identifiant_course;
+        this.id_entrainement = identifiant_entrainement;
+        this.date = date;
+        this.vitesse = vitesse;
+        this.distance_parcourue = distance_parcourue;
+        this.calories_brulees = calories_brulees;
+        this.puissance_developpe = puissance_developpe;
+        this.rythme_cardiaque = rythme_cardiaque;
+        this.nbCoup = nbCoup;
     }
 
     public Mesure() {
@@ -129,6 +150,7 @@ public class Mesure implements Serializable {
                 ", rythme_cardiaque=" + rythme_cardiaque +
                 ", identifiant_course=" + id_course +
                 ", identifiant_entrainement=" + id_entrainement +
+                ", nbCoups=" + nbCoup +
                 '}';
     }
 }
