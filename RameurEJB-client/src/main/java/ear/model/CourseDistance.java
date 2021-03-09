@@ -22,10 +22,10 @@ public class CourseDistance extends  Course{
         while (!toFinish) {
 
             //MESURE AVEC RAMEUR
-            //Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.courseData.getId());
+            Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.courseData.getId());
 
             //MESURE ALEATOIRE
-            Mesure mesure = this.mesureAleatoire(this.utilisateur.getIdentifiant(),this.courseData.getId(),null);
+            //Mesure mesure = this.mesureAleatoire(this.utilisateur.getIdentifiant(),this.courseData.getId(),null);
             //System.out.println(mesure.toString());
             this.senderData.send_mesure(mesure);
 

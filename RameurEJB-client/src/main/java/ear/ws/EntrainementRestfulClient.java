@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class EntrainementRestfulClient {
     private CloseableHttpClient httpClient;
-    private  static String BASE_URI = "http://127.0.0.1:8080/RameurEJB-web/rs/EntrainementService";
+    private  static String BASE_URI = "http://172.16.49.175:8080/RameurEJB-web/rs/EntrainementService";
 
     public EntrainementRestfulClient() {
         this.httpClient = new DefaultHttpClient();

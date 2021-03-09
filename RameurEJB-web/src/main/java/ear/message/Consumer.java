@@ -27,7 +27,7 @@ public class Consumer {
     private static String USERNAME = "rameuradmin";
 
     // Database password.
-    private static String PASSWORD = "admin";
+    private static String PASSWORD = "root";
 
     public static Statement connectToPostgres() {
 
@@ -64,6 +64,9 @@ public class Consumer {
             Statement postgresConnection = connectToPostgres();
             ConnectionFactory factory = new ConnectionFactory();
             factory.setHost("localhost");
+            factory.setPort(5672);
+            factory.setUsername("rameur");
+            factory.setPassword("rameur");
             Connection connection = factory.newConnection();
 
             Channel channel = connection.createChannel();

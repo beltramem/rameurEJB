@@ -25,6 +25,10 @@ public class ConsumerTopic {
 
     public void getMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost("172.16.49.175");
+        factory.setPort(5672);
+        factory.setUsername("rameur");
+        factory.setPassword("rameur");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 

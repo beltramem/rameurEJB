@@ -39,6 +39,7 @@ public class CourseGestion {
                 }
                 int subChoix = sc.nextInt();
 
+                System.out.println(usr.getIdentifiant());
                 ear.entity.Course coursedata = crc.creationCourse(activites.get(subChoix-1).getId(),0, usr.getIdentifiant());
                 String topic = "course."+coursedata+"."+usr.getIdentifiant();
                 ear.model.Course race = new CourseDistance(coursedata,queu,topic,usr,activites.get(subChoix-1).getDistance());
