@@ -2,17 +2,18 @@ package ear.model;
 
 import ear.entity.Mesure;
 import ear.entity.Utilisateur;
-import ear.message.Consumer;
-import ear.message.Sender;
+import ear.message.ConsumerTopic;
+import ear.message.SenderQueu;
+import ear.message.SenderTopic;
 import ear.rower.RowerLink;
 
 import java.util.Date;
 
 public abstract class Course implements CourseVShumain, CourseVia{
     protected ear.entity.Course courseData;
-    protected Sender senderData;
-    protected Sender senderTopic;
-    protected Consumer consumer;
+    protected SenderQueu senderData;
+    protected SenderTopic senderTopic;
+    protected ConsumerTopic consumerTopic;
     protected Utilisateur utilisateur;
 
     protected RowerLink rl;
@@ -34,9 +35,10 @@ public abstract class Course implements CourseVShumain, CourseVia{
 
     public Course(ear.entity.Course courseData, String queu, String topic, Utilisateur usr) {
         this.courseData = courseData;
-        this.senderData = new Sender(queu);
-        this.senderTopic = new Sender(topic);
+        this.senderData = new SenderQueu(queu);
+        this.senderTopic = new SenderTopic(topic);
         this.utilisateur = usr;
-        this.rl = new RowerLink();
+        this.consumerTopic = new ConsumerTopic(this.utilisateur.getIdentifiant(),this.courseData.getId());
+        //this.rl = new RowerLink();
     }
 }

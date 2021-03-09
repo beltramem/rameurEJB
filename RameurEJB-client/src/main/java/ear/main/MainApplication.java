@@ -61,8 +61,9 @@ public class MainApplication {
                 String subChoix = sc.nextLine();
                 switch (subChoix) {
                     case "1":
-                        cg.creerCourseIA(usr);
+                        //cg.creerCourseIA(usr);
                     case "2":
+                        cg.creerCourseVShumain(usr);
 
                 }
             }

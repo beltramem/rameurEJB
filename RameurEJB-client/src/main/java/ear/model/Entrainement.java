@@ -2,8 +2,8 @@ package ear.model;
 
 import ear.entity.Mesure;
 import ear.entity.Utilisateur;
-import ear.message.Consumer;
-import ear.message.Sender;
+import ear.message.ConsumerTopic;
+import ear.message.SenderQueu;
 import ear.rower.RowerLink;
 
 import java.util.Date;
@@ -11,9 +11,9 @@ import java.util.Date;
 public abstract class Entrainement implements EntrainementCoop,EntrainementSolo {
 
     protected ear.entity.Entrainement entrainementData;
-    protected Sender senderData;
-    protected Sender senderTopic;
-    protected Consumer consumer;
+    protected SenderQueu senderQueuData;
+    protected SenderQueu senderQueuTopic;
+    protected ConsumerTopic consumerTopic;
     protected Utilisateur utilisateur;
     protected RowerLink rl;
 
@@ -34,7 +34,7 @@ public abstract class Entrainement implements EntrainementCoop,EntrainementSolo 
 
     public Entrainement(ear.entity.Entrainement entrainementData, String queu, Utilisateur usr) {
         this.entrainementData = entrainementData;
-        this.senderData = new Sender(queu);
+        this.senderQueuData = new SenderQueu(queu);
         this.utilisateur = usr;
         this.rl = new RowerLink();
     }

@@ -27,7 +27,7 @@ public class Consumer {
     private static String USERNAME = "rameuradmin";
 
     // Database password.
-    private static String PASSWORD = "root";
+    private static String PASSWORD = "admin";
 
     public static Statement connectToPostgres() {
 

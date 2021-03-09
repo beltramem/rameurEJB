@@ -4,11 +4,7 @@ import ear.entity.Mesure;
 import ear.entity.Utilisateur;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-
-import static java.lang.Math.pow;
 
 public class EntrainementSeries extends  Entrainement{
     private int nbCoups;
@@ -23,7 +19,7 @@ public class EntrainementSeries extends  Entrainement{
         while (!toFinish) {
 
             Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.entrainementData.getId());
-            this.senderData.send_mesure(mesure);
+            this.senderQueuData.send_mesure(mesure);
             toFinish= (this.nbCoups <= mesure.getNbCoup());
             Thread.sleep(500);
         }

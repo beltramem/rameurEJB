@@ -17,12 +17,20 @@ public class CourseDistance extends  Course{
 
     @Override
     public void lancerCourseVShumain() throws IOException, TimeoutException, InterruptedException {
-
+        System.out.println("ok");
+        String routingKey = "course."+this.courseData.getId()+".#";
         while (!toFinish) {
 
-            Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.courseData.getId());
-            System.out.println(mesure.toString());
+            //MESURE AVEC RAMEUR
+            //Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.courseData.getId());
+
+            //MESURE ALEATOIRE
+            Mesure mesure = this.mesureAleatoire(this.utilisateur.getIdentifiant(),this.courseData.getId(),null);
+            //System.out.println(mesure.toString());
             this.senderData.send_mesure(mesure);
+
+            this.senderTopic.send_mesure(mesure,routingKey);
+            this.consumerTopic.getMessage();
             toFinish = (distance <= mesure.getDistance_parcourue());
             Thread.sleep(500);
         }

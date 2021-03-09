@@ -4,11 +4,7 @@ import ear.entity.Mesure;
 import ear.entity.Utilisateur;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-
-import static java.lang.Math.pow;
 
 public class EntrainementDistance extends  Entrainement{
     private double distance;
@@ -29,7 +25,7 @@ public class EntrainementDistance extends  Entrainement{
 
             Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.entrainementData.getId());
             System.out.println(mesure.toString());
-            this.senderData.send_mesure(mesure);
+            this.senderQueuData.send_mesure(mesure);
             toFinish = (distance <= mesure.getDistance_parcourue());
             Thread.sleep(500);
         }
