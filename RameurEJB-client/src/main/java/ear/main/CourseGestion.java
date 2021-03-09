@@ -12,6 +12,7 @@ import ear.ws.TypeActiviteRestfulClient;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.TimeoutException;
 
 
 public class CourseGestion {
@@ -77,7 +78,7 @@ public class CourseGestion {
         }
     }
 
-    public void rejoindreCourse(Utilisateur u) throws IOException {
+    public void rejoindreCourse(Utilisateur u) throws IOException, TimeoutException, InterruptedException {
 
         System.out.println("taper le numéro de la course");
         Scanner sc = new Scanner(System.in);
@@ -92,7 +93,8 @@ public class CourseGestion {
         String queu = u.getIdentifiant();
         if(coursedata.getType_activite() instanceof Activite_distance)
         {
-            CourseDistance courseDistance = new CourseDistance(coursedata,queu,topic,u,((Activite_distance) coursedata.getType_activite()).getDistance());
+            CourseDistance course = new CourseDistance(coursedata,queu,topic,u,((Activite_distance) coursedata.getType_activite()).getDistance());
+            course.lancerCourseVShumain();
         }
 
 
