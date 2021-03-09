@@ -12,4 +12,5 @@ public interface CourseLocal {
     public List<Course> getCourseByUser(String identifiant);
     public List<Course> getCourse();
     public List<Course> getCourseByType(Type_activite type);
+    public Course getCourseById(int id);
 }

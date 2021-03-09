@@ -12,6 +12,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
+import static ear.entity.Course.QN.FIND_COURSE;
 import static ear.entity.Type_activite.QN.PAR_ID;
 import static ear.entity.Utilisateur.QN.FIND_COMPTE;
 
@@ -63,6 +64,18 @@ public class CourseBean implements CourseLocal, CourseRemote {
         return null;
     }
 
+    @Override
+    public Course getCourseById(int id) {
+        Course race = null;
+        Query query = em.createNamedQuery(FIND_COURSE);
+        query.setParameter("ID",id);
+        List<Course> courses = query.getResultList();
+
+        if (courses.size()>0) {
+         race=courses.get(0);
+        }
+        return race;
+    }
 
 
 }

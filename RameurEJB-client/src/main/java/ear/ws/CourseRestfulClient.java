@@ -3,14 +3,20 @@ package ear.ws;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ear.entity.Course;
+import ear.entity.Utilisateur;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 public class CourseRestfulClient {
     private CloseableHttpClient httpClient;
@@ -42,4 +48,35 @@ public class CourseRestfulClient {
             httpClient.getConnectionManager().shutdown();
         }
     }
+
+    public void rejoindreCourse(int id_course, Utilisateur u) throws IOException {
+        String uri = BASE_URI + "/rejoindreCourse" + "/" + id_course;
+        HttpPut httpPut = new HttpPut(uri);
+        httpPut.setHeader("Accept", "application/json");
+        httpPut.setHeader("Content-type", "application/json");
+
+        final GsonBuilder builder = new GsonBuilder();
+        final Gson gson = builder.create();
+        String json = gson.toJson(u);
+        StringEntity stringEntity = new StringEntity(json);
+        httpPut.setEntity(stringEntity);
+
+        System.out.println("Executing request " + httpPut.getRequestLine());
+
+        // Create a custom response handler
+        ResponseHandler<String> responseHandler = response -> {
+        int status = response.getStatusLine().getStatusCode();
+        if (status >= 200 && status < 300) {
+            HttpEntity entity = response.getEntity();
+            return entity != null ? EntityUtils.toString(entity) : null;
+        } else {
+            throw new ClientProtocolException("Unexpected response status: " + status);
+        }
+            };
+        String responseBody = httpClient.execute(httpPut, responseHandler);
+        System.out.println("----------------------------------------");
+        System.out.println(responseBody);
+    }
+
 }
+

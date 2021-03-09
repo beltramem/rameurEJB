@@ -108,6 +108,11 @@ public class Course implements Serializable {
         this.participants = participants;
     }
 
+    public void addParticipant(Utilisateur u)
+    {
+        this.participants.add(u);
+    }
+
     @Override
     public String toString() {
         return "Course{" +

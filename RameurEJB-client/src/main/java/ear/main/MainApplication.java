@@ -28,9 +28,6 @@ public class MainApplication {
             }
         }
 
-        /*EntrainementRestfulClient entr = new EntrainementRestfulClient();
-        Entrainement ent = entr.creationEntrainement(1,0,"betramem");
-        System.out.println(ent.toString());*/
 
         System.out.println("Menu principal:");
         System.out.println("1 : s'entrainer");
@@ -57,14 +54,16 @@ public class MainApplication {
             case "2":{
                 CourseGestion cg = new CourseGestion();
                 System.out.println("1: Faire course contre IA");
-                System.out.println("2: Faire course contre joueur");
+                System.out.println("2: creer course contre joueur");
+                System.out.println("2: rejoindre course contre joueur");
                 String subChoix = sc.nextLine();
                 switch (subChoix) {
                     case "1":
                         //cg.creerCourseIA(usr);
                     case "2":
                         cg.creerCourseVShumain(usr);
-
+                    case "3":
+                        cg.rejoindreCourse(usr);
                 }
             }
         }
