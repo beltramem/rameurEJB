@@ -69,4 +69,12 @@ public class UtilisateurBean  implements  UtilisateurLocal, UtilisateurRemote{
 
     }
 
+    @Override
+    public Utilisateur getUtilisateur(String idutilisateur) {
+        Query query = em.createNamedQuery(FIND_COMPTE);
+        query.setParameter("ID", idutilisateur);
+        List<Utilisateur> utilisateur = query.getResultList();
+        return  utilisateur.get(0);
+    }
+
 }

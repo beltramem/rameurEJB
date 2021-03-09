@@ -50,16 +50,11 @@ public class CourseRestfulClient {
     }
 
     public void rejoindreCourse(int id_course, Utilisateur u) throws IOException {
-        String uri = BASE_URI + "/rejoindreCourse" + "/" + id_course;
+        String uri = BASE_URI + "/rejoindreCourse" + "/" + id_course+"/"+ u.getIdentifiant();
         HttpPut httpPut = new HttpPut(uri);
         httpPut.setHeader("Accept", "application/json");
         httpPut.setHeader("Content-type", "application/json");
 
-        final GsonBuilder builder = new GsonBuilder();
-        final Gson gson = builder.create();
-        String json = gson.toJson(u);
-        StringEntity stringEntity = new StringEntity(json);
-        httpPut.setEntity(stringEntity);
 
         System.out.println("Executing request " + httpPut.getRequestLine());
 

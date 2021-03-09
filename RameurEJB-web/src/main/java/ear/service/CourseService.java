@@ -43,10 +43,11 @@ public class CourseService {
     @Path("/rejoindreCourse/{id_course}/{id_utilisateur}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response rejoidre(@PathParam("id_course") int id_course,
-                             Utilisateur utilisateur) throws Exception {
+                             @PathParam("id_utilisateur") String id_utilisateur) throws Exception {
 
-        Utilisateur customer = ul.connexion(utilisateur.getIdentifiant(),utilisateur.getMdp());
-        if (customer == null) {
+
+        Utilisateur utilisateur = ul.getUtilisateur(id_utilisateur);
+        if (utilisateur == null) {
             throw new WebApplicationException("Can't find it", 404);
         }
 
