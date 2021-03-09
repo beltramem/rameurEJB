@@ -39,10 +39,23 @@ public class CourseService {
         }
     }
 
+    @GET
+    @Path("/getCourse/{id_course}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Course getCourse(
+            @PathParam(value="id_course")int id_course) throws Exception {
+        try {
+            Course c = race.getCourseById(id_course);
+            return c;
+        } catch (Exception e) {
+            throw new Exception(e);
+        }
+    }
+
     @PUT
     @Path("/rejoindreCourse/{id_course}/{id_utilisateur}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response rejoidre(@PathParam("id_course") int id_course,
+    public Response rejoindreCourse(@PathParam("id_course") int id_course,
                              @PathParam("id_utilisateur") String id_utilisateur) throws Exception {
 
 
@@ -56,7 +69,7 @@ public class CourseService {
             throw new WebApplicationException("Can't find it", 404);
         }
 
-        course.addParticipant(utilisateur);
+        race.getCourseById(id_course).addParticipant(utilisateur);
         return Response.noContent().build();
     }
 }

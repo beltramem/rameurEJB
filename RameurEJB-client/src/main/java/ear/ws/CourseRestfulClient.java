@@ -49,6 +49,29 @@ public class CourseRestfulClient {
         }
     }
 
+    public ear.entity.Course getCourse(int id_course) throws IOException {
+        try {
+            String uri = BASE_URI + "/getCourse" + "/" + id_course ;
+            HttpGet getRequest = new HttpGet(uri);
+            HttpResponse response = httpClient.execute(getRequest);
+            int statusCode = response.getStatusLine().getStatusCode();
+            if (statusCode != 200) {
+                throw new RuntimeException("Failed with HTTP error code : " + statusCode);
+            }
+            HttpEntity httpEntity = response.getEntity();
+            String apiOutput = EntityUtils.toString(httpEntity);
+            System.out.println(apiOutput);
+            Gson gson = new GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd")
+                    .create();
+            Course data = gson.fromJson(apiOutput, Course.class);
+            return data;
+        } finally {
+            //Important: Close the connect
+            httpClient.getConnectionManager().shutdown();
+        }
+    }
+
     public void rejoindreCourse(int id_course, Utilisateur u) throws IOException {
         String uri = BASE_URI + "/rejoindreCourse" + "/" + id_course+"/"+ u.getIdentifiant();
         HttpPut httpPut = new HttpPut(uri);

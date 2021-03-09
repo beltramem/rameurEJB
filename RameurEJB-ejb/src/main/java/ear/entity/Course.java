@@ -111,6 +111,10 @@ public class Course implements Serializable {
     public void addParticipant(Utilisateur u)
     {
         this.participants.add(u);
+
+    }
+
+    public Course() {
     }
 
     @Override

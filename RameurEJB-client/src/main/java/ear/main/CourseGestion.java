@@ -58,6 +58,7 @@ public class CourseGestion {
                     switch (lancer)
                     {
                         case 2:{
+                            coursedata = crc.getCourse(coursedata.getId());
                             if(coursedata.getParticipants().size()>1)
                             {
                                 tourne=false;
