@@ -55,7 +55,7 @@ public class MainApplication {
                 CourseGestion cg = new CourseGestion();
                 System.out.println("1: Faire course contre IA");
                 System.out.println("2: creer course contre joueur");
-                System.out.println("2: rejoindre course contre joueur");
+                System.out.println("3: rejoindre course contre joueur");
                 String subChoix = sc.nextLine();
                 switch (subChoix) {
                     case "1":

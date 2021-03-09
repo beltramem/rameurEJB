@@ -19,15 +19,13 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class CourseRestfulClient {
-    private CloseableHttpClient httpClient;
     private  static String BASE_URI = "http://172.16.49.175:8080/RameurEJB-web/rs/CourseService";
 
-    public CourseRestfulClient() {
-        this.httpClient = new DefaultHttpClient();
-    }
 
     public ear.entity.Course creationCourse(int type_activite, int etat, String participant) throws IOException {
+        CloseableHttpClient httpClient = new DefaultHttpClient();
         try {
+
             String uri = BASE_URI + "/creationCourse" + "/" + type_activite + "/" + etat + "/" + participant;
             HttpGet getRequest = new HttpGet(uri);
             HttpResponse response = httpClient.execute(getRequest);
@@ -50,6 +48,7 @@ public class CourseRestfulClient {
     }
 
     public ear.entity.Course getCourse(int id_course) throws IOException {
+        CloseableHttpClient httpClient = new DefaultHttpClient();
         try {
             String uri = BASE_URI + "/getCourse" + "/" + id_course ;
             HttpGet getRequest = new HttpGet(uri);
@@ -73,6 +72,7 @@ public class CourseRestfulClient {
     }
 
     public void rejoindreCourse(int id_course, Utilisateur u) throws IOException {
+        CloseableHttpClient httpClient = new DefaultHttpClient();
         String uri = BASE_URI + "/rejoindreCourse" + "/" + id_course+"/"+ u.getIdentifiant();
         HttpPut httpPut = new HttpPut(uri);
         httpPut.setHeader("Accept", "application/json");
