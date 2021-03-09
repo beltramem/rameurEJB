@@ -13,4 +13,5 @@ public interface CourseLocal {
     public List<Course> getCourse();
     public List<Course> getCourseByType(Type_activite type);
     public Course getCourseById(int id);
+    public void lancerCourse(int id);
 }

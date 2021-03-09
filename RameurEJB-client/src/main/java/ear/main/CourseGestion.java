@@ -3,6 +3,7 @@ package ear.main;
 import com.sun.deploy.ui.AboutDialog;
 import ear.entity.Activite_distance;
 import ear.entity.Activite_duree;
+import ear.entity.Course;
 import ear.entity.Utilisateur;
 import ear.model.CourseDistance;
 import ear.ws.CourseRestfulClient;
@@ -77,10 +78,23 @@ public class CourseGestion {
     }
 
     public void rejoindreCourse(Utilisateur u) throws IOException {
+
         System.out.println("taper le numéro de la course");
         Scanner sc = new Scanner(System.in);
         int choix = sc.nextInt();
         crc.rejoindreCourse(choix,u);
+        while (crc.getCourse(choix).getEtat()!=1)
+        {
+            System.out.println("en attente du lancement");
+        }
+        Course coursedata = crc.getCourse(choix);
+        String topic = "course."+coursedata+"."+u.getIdentifiant();
+        String queu = u.getIdentifiant();
+        if(coursedata.getType_activite() instanceof Activite_distance)
+        {
+            CourseDistance courseDistance = new CourseDistance(coursedata,queu,topic,u,((Activite_distance) coursedata.getType_activite()).getDistance());
+        }
+
 
     }
 }

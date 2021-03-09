@@ -77,5 +77,16 @@ public class CourseBean implements CourseLocal, CourseRemote {
         return race;
     }
 
+    @Override
+    public void lancerCourse(int id) {
+        Query query = em.createNamedQuery(FIND_COURSE);
+        query.setParameter("ID",id);
+        List<Course> courses = query.getResultList();
+
+        if (courses.size()>0) {
+            courses.get(0).setEtat(1);
+        }
+    }
+
 
 }
