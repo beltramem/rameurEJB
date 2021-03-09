@@ -70,6 +70,7 @@ public class CourseService {
         }
 
         race.getCourseById(id_course).addParticipant(utilisateur);
+
         return Response.noContent().build();
     }
 
