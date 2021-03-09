@@ -19,6 +19,8 @@ public class CourseDistance extends  Course{
     public void lancerCourseVShumain() throws IOException, TimeoutException, InterruptedException {
         System.out.println("ok");
         String routingKey = "course."+this.courseData.getId()+".#";
+
+        this.rl.goToMenu();
         while (!toFinish) {
 
             //MESURE AVEC RAMEUR
@@ -34,6 +36,6 @@ public class CourseDistance extends  Course{
             toFinish = (distance <= mesure.getDistance_parcourue());
             Thread.sleep(500);
         }
-        //this.rl.goToMenu();
+        this.rl.goToMenu();
     }
 }
