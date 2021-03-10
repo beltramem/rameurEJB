@@ -21,8 +21,8 @@ import java.util.List;
 public class TypeActiviteRestfulClient {
 
     private CloseableHttpClient httpClient;
-    //private static String BASE_URI = "http://172.16.49.175:8080/RameurEJB-web/rs/TypeActiviteService";
-    private static  String BASE_URI = "http://localhost:8080/RameurEJB-web/rs/TypeActiviteService";
+    private static String BASE_URI = "http://172.16.49.175:8080/RameurEJB-web/rs/TypeActiviteService";
+    //private static  String BASE_URI = "http://localhost:8080/RameurEJB-web/rs/TypeActiviteService";
 
     public TypeActiviteRestfulClient()
     {

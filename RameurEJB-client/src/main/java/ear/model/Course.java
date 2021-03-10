@@ -39,6 +39,6 @@ public abstract class Course implements CourseVShumain, CourseVia{
         this.senderTopic = new SenderTopic(topic);
         this.utilisateur = usr;
         this.consumerTopic = new ConsumerTopic(this.utilisateur.getIdentifiant(),this.courseData.getId());
-        //this.rl = new RowerLink();
+        this.rl = new RowerLink();
     }
 }

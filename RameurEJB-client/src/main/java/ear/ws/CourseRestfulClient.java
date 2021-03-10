@@ -19,8 +19,8 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class CourseRestfulClient {
-    //private  static String BASE_URI = "http://172.16.49.175:8080/RameurEJB-web/rs/CourseService";
-    private static  String BASE_URI = "http://localhost:8080/RameurEJB-web/rs/CourseService";
+    private  static String BASE_URI = "http://172.16.49.175:8080/RameurEJB-web/rs/CourseService";
+    //private static  String BASE_URI = "http://localhost:8080/RameurEJB-web/rs/CourseService";
 
     public ear.entity.Course creationCourse(int type_activite, int etat, String participant) throws IOException {
         CloseableHttpClient httpClient = new DefaultHttpClient();

@@ -24,13 +24,13 @@ public class CourseDuree  extends  Course{
     public void lancerCourseVShumain() throws IOException, TimeoutException, InterruptedException {
         String routingKey = "course."+this.courseData.getId()+".#";
 
-        //this.rl.goToMenu();
+        this.rl.goToMenu();
         while (!toFinish) {
         //MESURE AVEC RAMEUR
-        //Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.courseData.getId());
+        Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.courseData.getId());
 
         //MESURE ALEATOIRE
-        Mesure mesure = this.mesureAleatoire(this.utilisateur.getIdentifiant(),this.courseData.getId(),null);
+        //Mesure mesure = this.mesureAleatoire(this.utilisateur.getIdentifiant(),this.courseData.getId(),null);
         System.out.println(mesure.toString());
         this.senderData.send_mesure(mesure);
 
@@ -39,6 +39,6 @@ public class CourseDuree  extends  Course{
         toFinish = (System.nanoTime() - startTime >= totalTime);
         Thread.sleep(500);
         }
-        //this.rl.goToMenu();
+        this.rl.goToMenu();
     }
 }

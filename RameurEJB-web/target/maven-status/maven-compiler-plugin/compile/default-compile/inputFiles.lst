@@ -1,7 +1,7 @@
-D:\cours\M2\rameurEJB\RameurEJB-web\src\main\java\ear\service\ApplicationRest.java
-D:\cours\M2\rameurEJB\RameurEJB-web\src\main\java\ear\service\EntrainementService.java
-D:\cours\M2\rameurEJB\RameurEJB-web\src\main\java\ear\service\TypeActiviteService.java
-D:\cours\M2\rameurEJB\RameurEJB-web\src\main\java\ear\model\ResponseList.java
-D:\cours\M2\rameurEJB\RameurEJB-web\src\main\java\ear\service\UtilisateurService.java
-D:\cours\M2\rameurEJB\RameurEJB-web\src\main\java\ear\message\Consumer.java
-D:\cours\M2\rameurEJB\RameurEJB-web\src\main\java\ear\service\CourseService.java
+/root/IdeaProjects/rameurEJB/RameurEJB-web/src/main/java/ear/model/ResponseList.java
+/root/IdeaProjects/rameurEJB/RameurEJB-web/src/main/java/ear/service/CourseService.java
+/root/IdeaProjects/rameurEJB/RameurEJB-web/src/main/java/ear/service/EntrainementService.java
+/root/IdeaProjects/rameurEJB/RameurEJB-web/src/main/java/ear/message/Consumer.java
+/root/IdeaProjects/rameurEJB/RameurEJB-web/src/main/java/ear/service/UtilisateurService.java
+/root/IdeaProjects/rameurEJB/RameurEJB-web/src/main/java/ear/service/ApplicationRest.java
+/root/IdeaProjects/rameurEJB/RameurEJB-web/src/main/java/ear/service/TypeActiviteService.java
