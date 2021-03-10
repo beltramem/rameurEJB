@@ -8,6 +8,7 @@ import org.apache.commons.lang.SerializationUtils;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -79,14 +80,19 @@ public class Consumer {
                 public void handle(String consumerTag, Delivery delivery) throws IOException {
                     byte[] byteMessage = delivery.getBody();
                     //System.out.println("message recu");
-                    Mesure mesure = (Mesure) SerializationUtils.deserialize(byteMessage);
-                    System.out.println(" [x] Received '" + mesure.toString() + "'");
-                    String query = "insert into mesure(identifiant_utilisateur,id_course,id_entrainement,date,vitesse,distance_parcourue,calories_brulees,puissance_developpe,rythme_cardiaque) VALUES ('"+mesure.getIdentifiant_utilisateur()+"',"+mesure.getId_course()+","+mesure.getId_entrainement()+",'"+mesure.getDate()+"',"+mesure.getVitesse()+","+mesure.getDistance_parcourue()+","+mesure.getCalories_brulees()+","+mesure.getPuissance_developpe()+","+mesure.getRythme_cardiaque()+")";
-                    System.out.println(query);
                     try {
-                        postgresConnection.execute(query);
-                    } catch (SQLException throwables) {
-                        throwables.printStackTrace();
+                        Mesure mesure = (Mesure) SerializationUtils.deserialize(byteMessage);
+                        System.out.println(" [x] Received '" + mesure.toString() + "'");
+                        String query = "insert into mesure(identifiant_utilisateur,id_course,id_entrainement,date,vitesse,distance_parcourue,calories_brulees,puissance_developpe,rythme_cardiaque) VALUES ('" + mesure.getIdentifiant_utilisateur() + "'," + mesure.getId_course() + "," + mesure.getId_entrainement() + ",'" + mesure.getDate() + "'," + mesure.getVitesse() + "," + mesure.getDistance_parcourue() + "," + mesure.getCalories_brulees() + "," + mesure.getPuissance_developpe() + "," + mesure.getRythme_cardiaque() + ")";
+                        System.out.println(query);
+                        try {
+                            postgresConnection.execute(query);
+                        } catch (SQLException throwables) {
+                            throwables.printStackTrace();
+                        }
+                    }catch (Exception e)
+                    {
+                        e.printStackTrace();
                     }
                 }
             };
