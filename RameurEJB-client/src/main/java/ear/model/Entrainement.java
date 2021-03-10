@@ -36,6 +36,6 @@ public abstract class Entrainement implements EntrainementCoop,EntrainementSolo 
         this.entrainementData = entrainementData;
         this.senderQueuData = new SenderQueu(queu);
         this.utilisateur = usr;
-        this.rl = new RowerLink();
+        //this.rl = new RowerLink();
     }
 }

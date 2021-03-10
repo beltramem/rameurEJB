@@ -1,11 +1,10 @@
 package ear.main;
 
-import com.sun.deploy.ui.AboutDialog;
-import ear.entity.Activite_distance;
-import ear.entity.Activite_duree;
-import ear.entity.Course;
-import ear.entity.Utilisateur;
+
+import ear.entity.*;
 import ear.model.CourseDistance;
+import ear.model.CourseDuree;
+import ear.model.CourseSeries;
 import ear.ws.CourseRestfulClient;
 import ear.ws.TypeActiviteRestfulClient;
 
@@ -24,17 +23,64 @@ public class CourseGestion {
         this.crc = new CourseRestfulClient();
     }
 
+    public void lancerCourse(ear.entity.Course coursedata, ear.model.Course race) throws IOException, TimeoutException, InterruptedException {
+        Scanner sc = new Scanner(System.in);
+        boolean tourne=true;
+        while (tourne)
+        {
+            coursedata = crc.getCourse(coursedata.getId());
+            for( Utilisateur u : coursedata.getParticipants() ) {
+                System.out.println(u.getIdentifiant());
+            }
+            System.out.println("1: maj des participants");
+            System.out.println("2: lancer la course");
+            int lancer = sc.nextInt();
+            switch (lancer)
+            {
+                case 2:{
+                    coursedata = crc.getCourse(coursedata.getId());
+                    if(coursedata.getParticipants().size()>1)
+                    {
+                        tourne=false;
+
+                        crc.lancerCourse(coursedata.getId());
+                        race.lancerCourseVShumain();
+                    }
+                    else
+                    {
+                        System.out.println("trop peu de participants");
+                    }
+                }
+            }
+        }
+    }
+
     public void creerCourseVShumain(Utilisateur usr) throws Exception {
         System.out.println("Choisir le type d'activite");
         System.out.println("1: Activite duree");
         System.out.println("2: Activite distance ");
-        System.out.println("3: Activite libre ");
-        System.out.println("4: Activite nombre de series ");
+        System.out.println("3: Activite nombre de series ");
         Scanner sc = new Scanner(System.in);
         String choix = sc.nextLine();
         String queu = usr.getIdentifiant();
 
         switch (choix) {
+            case "1": {
+                System.out.println("Choisir dans la liste :");
+                List<Activite_duree> activites= tarc.getActiviteDuree();
+
+                for (int i=0;i<activites.size();i++) {
+                    System.out.println(i+1+":"+activites.get(i).getNom()+" description:"+activites.get(0).getDescription());
+                }
+                int subChoix = sc.nextInt();
+
+                //System.out.println(usr.getIdentifiant());
+                ear.entity.Course coursedata = crc.creationCourse(activites.get(subChoix-1).getId(),0, usr.getIdentifiant());
+                String topic = "course."+coursedata+"."+usr.getIdentifiant();
+                ear.model.Course race = new CourseDuree(coursedata,queu,topic,usr,activites.get(subChoix-1).getDuree());
+                lancerCourse(coursedata,race);
+
+            }
             case "2": {
                 System.out.println("Choisir dans la liste :");
                 List<Activite_distance> activites= tarc.getActiviteDistance();
@@ -48,37 +94,30 @@ public class CourseGestion {
                 ear.entity.Course coursedata = crc.creationCourse(activites.get(subChoix-1).getId(),0, usr.getIdentifiant());
                 String topic = "course."+coursedata+"."+usr.getIdentifiant();
                 ear.model.Course race = new CourseDistance(coursedata,queu,topic,usr,activites.get(subChoix-1).getDistance());
-                boolean tourne=true;
-                while (tourne)
-                {
-                    coursedata = crc.getCourse(coursedata.getId());
-                    for( Utilisateur u : coursedata.getParticipants() ) {
-                        System.out.println(u.getIdentifiant());
-                    }
-                    System.out.println("1: maj des participants");
-                    System.out.println("2: lancer la course");
-                    int lancer = sc.nextInt();
-                    switch (lancer)
-                    {
-                        case 2:{
+                lancerCourse(coursedata,race);
 
-                            if(coursedata.getParticipants().size()>1)
-                            {
-                                tourne=false;
-                                race.lancerCourseVShumain();
-                            }
-                            else
-                            {
-                                System.out.println("trop peu de participants");
-                            }
-                        }
-                    }
-                }
             }
+            case "3": {
+                System.out.println("Choisir dans la liste :");
+                List<Activite_series> activites= tarc.getActiviteSeries();
+
+                for (int i=0;i<activites.size();i++) {
+                    System.out.println(i+1+":"+activites.get(i).getNom()+" description:"+activites.get(0).getDescription());
+                }
+                int subChoix = sc.nextInt();
+
+                //System.out.println(usr.getIdentifiant());
+                ear.entity.Course coursedata = crc.creationCourse(activites.get(subChoix-1).getId(),0, usr.getIdentifiant());
+                String topic = "course."+coursedata+"."+usr.getIdentifiant();
+                ear.model.Course race = new CourseSeries(coursedata,queu,topic,usr,activites.get(subChoix-1).getNbSeries());
+                lancerCourse(coursedata,race);
+
+            }
+
         }
     }
 
-    public void rejoindreCourse(Utilisateur u) throws IOException, TimeoutException, InterruptedException {
+    public void rejoindreCourse(Utilisateur u) throws Exception {
 
         System.out.println("taper le numéro de la course");
         Scanner sc = new Scanner(System.in);
@@ -91,11 +130,39 @@ public class CourseGestion {
         Course coursedata = crc.getCourse(choix);
         String topic = "course."+coursedata+"."+u.getIdentifiant();
         String queu = u.getIdentifiant();
-        if(coursedata.getType_activite() instanceof Activite_distance)
+
+
+        Activite_distance existDistance = tarc.getActiviteDistance().stream()
+                .filter(distance -> coursedata.getType_activite().getId()==distance.getId())
+                .findAny()
+                .orElse(null);
+
+        Activite_duree existDuree = tarc.getActiviteDuree().stream()
+                .filter(duree -> coursedata.getType_activite().getId()==duree.getId())
+                .findAny()
+                .orElse(null);
+
+        Activite_series existSerie = tarc.getActiviteSeries().stream()
+                .filter(serie -> coursedata.getType_activite().getId()==serie.getId())
+                .findAny()
+                .orElse(null);
+
+        if(existDistance != null)
         {
-            CourseDistance course = new CourseDistance(coursedata,queu,topic,u,((Activite_distance) coursedata.getType_activite()).getDistance());
+            CourseDistance course = new CourseDistance(coursedata,queu,topic,u,existDistance.getDistance());
+            course.lancerCourseVShumain();
+        }else if(existDuree != null)
+        {
+            CourseDuree course = new CourseDuree(coursedata,queu,topic,u,existDuree.getDuree());
+            course.lancerCourseVShumain();
+        }else if(existSerie != null)
+        {
+            CourseSeries course = new CourseSeries(coursedata,queu,topic,u,existSerie.getNbSeries());
             course.lancerCourseVShumain();
         }
+
+
+
 
 
     }

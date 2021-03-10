@@ -13,7 +13,6 @@ public class EntrainementLibre extends  Entrainement{
     }
     @Override
     public void lancerEntrainementSolo() throws IOException, TimeoutException, InterruptedException {
-        long temps_depart = System.currentTimeMillis();
         while (true) {
 
             Mesure mesure =this.rl.getMesure(this.utilisateur.getIdentifiant(),this.entrainementData.getId());

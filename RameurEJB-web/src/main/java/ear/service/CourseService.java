@@ -75,7 +75,7 @@ public class CourseService {
     }
 
     @PUT
-    @Path("/rejoindreCourse/{id_course}/{id_utilisateur}")
+    @Path("/lancerCourse/{id_course}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response lancerCourse(@PathParam("id_course") int id_course) throws Exception {
 

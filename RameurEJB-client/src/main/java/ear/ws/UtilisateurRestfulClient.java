@@ -23,11 +23,13 @@ import java.util.List;
 public class UtilisateurRestfulClient {
 
     private CloseableHttpClient httpClient;
-    private static String BASE_URI = "http://172.16.49.175:8080/RameurEJB-web/rs/UtilisateurService";
+    //private static String BASE_URI = "http://172.16.49.175:8080/RameurEJB-web/rs/UtilisateurService";
+    private static  String BASE_URI = "http://localhost:8080/RameurEJB-web/rs/UtilisateurService";
 
     public UtilisateurRestfulClient() {
         this.httpClient = HttpClients.createDefault();
     }
+
 
     public Utilisateur connexion(String identifiant, String mdp) throws Exception
     {

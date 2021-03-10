@@ -24,8 +24,9 @@ public class ConsumerTopic {
     }
 
     public void getMessage() throws IOException, TimeoutException {
+
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("172.16.49.175");
+        //factory.setHost("172.16.49.175");
         factory.setPort(5672);
         factory.setUsername("rameur");
         factory.setPassword("rameur");
@@ -36,16 +37,16 @@ public class ConsumerTopic {
         String queueName = "adversaire_data"+this.username;
         channel.queueDeclare(queueName, false, false, false, null);
         String bindingKey = "course."+this.activiteID+".#";
-        System.out.println(bindingKey);
         channel.queueBind(queueName,EXCHANGE_NAME,bindingKey);
 
         DeliverCallback deliverCallback = new DeliverCallback() {
-            @Override
             public void handle(String consumerTag, Delivery delivery) throws IOException {
                 byte[] byteMessage = delivery.getBody();
                 Mesure mesure = (Mesure) SerializationUtils.deserialize(byteMessage);
 
-                System.out.println(" [x] Received '" + mesure.toString() + "'");
+                if(!mesure.getIdentifiant_utilisateur().equals(username)) {
+                    System.out.println(" [x] Received '" + mesure.toString() + "'");
+                }
 
             }
         };

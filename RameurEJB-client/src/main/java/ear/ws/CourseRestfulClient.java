@@ -19,8 +19,8 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class CourseRestfulClient {
-    private  static String BASE_URI = "http://172.16.49.175:8080/RameurEJB-web/rs/CourseService";
-
+    //private  static String BASE_URI = "http://172.16.49.175:8080/RameurEJB-web/rs/CourseService";
+    private static  String BASE_URI = "http://localhost:8080/RameurEJB-web/rs/CourseService";
 
     public ear.entity.Course creationCourse(int type_activite, int etat, String participant) throws IOException {
         CloseableHttpClient httpClient = new DefaultHttpClient();
@@ -71,30 +71,47 @@ public class CourseRestfulClient {
         }
     }
 
-    public void rejoindreCourse(int id_course, Utilisateur u) throws IOException {
+    public void httpPut(String uri)
+    {
         CloseableHttpClient httpClient = new DefaultHttpClient();
-        String uri = BASE_URI + "/rejoindreCourse" + "/" + id_course+"/"+ u.getIdentifiant();
-        HttpPut httpPut = new HttpPut(uri);
-        httpPut.setHeader("Accept", "application/json");
-        httpPut.setHeader("Content-type", "application/json");
+        try {
+            HttpPut httpPut = new HttpPut(uri);
+            httpPut.setHeader("Accept", "application/json");
+            httpPut.setHeader("Content-type", "application/json");
 
 
-        System.out.println("Executing request " + httpPut.getRequestLine());
+            System.out.println("Executing request " + httpPut.getRequestLine());
 
-        // Create a custom response handler
-        ResponseHandler<String> responseHandler = response -> {
-        int status = response.getStatusLine().getStatusCode();
-        if (status >= 200 && status < 300) {
-            HttpEntity entity = response.getEntity();
-            return entity != null ? EntityUtils.toString(entity) : null;
-        } else {
-            throw new ClientProtocolException("Unexpected response status: " + status);
-        }
+            // Create a custom response handler
+            ResponseHandler<String> responseHandler = response -> {
+                int status = response.getStatusLine().getStatusCode();
+                if (status >= 200 && status < 300) {
+                    HttpEntity entity = response.getEntity();
+                    return entity != null ? EntityUtils.toString(entity) : null;
+                } else {
+                    throw new ClientProtocolException("Unexpected response status: " + status);
+                }
             };
-        String responseBody = httpClient.execute(httpPut, responseHandler);
-        System.out.println("----------------------------------------");
-        System.out.println(responseBody);
+            String responseBody = httpClient.execute(httpPut, responseHandler);
+            System.out.println("----------------------------------------");
+            System.out.println(responseBody);
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            httpClient.getConnectionManager().shutdown();
+        }
     }
 
+    public void rejoindreCourse(int id_course, Utilisateur u) throws IOException {
+        String uri = BASE_URI + "/rejoindreCourse" + "/"+ id_course + "/"+ u.getIdentifiant();
+        this.httpPut(uri);
+    }
+
+    public void lancerCourse(int id_course) throws IOException {
+        String uri = BASE_URI + "/lancerCourse" + "/" + id_course;
+        this.httpPut(uri);
+    }
 }
 

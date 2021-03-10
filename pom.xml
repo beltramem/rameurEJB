@@ -36,7 +36,7 @@
         <module>RameurEJB-ejb</module>
         <module>RameurEJB-web</module>
         <module>RameurEJB-ear</module>
-        <!-- <module>RameurEJB-client</module> -->
+        <!--<module>RameurEJB-client</module> -->
     </modules>
 
     <properties>

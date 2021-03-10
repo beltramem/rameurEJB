@@ -21,6 +21,7 @@ public class EntrainementSeries extends  Entrainement{
             Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.entrainementData.getId());
             this.senderQueuData.send_mesure(mesure);
             toFinish= (this.nbCoups <= mesure.getNbCoup());
+            System.out.println(mesure.getNbCoup());
             Thread.sleep(500);
         }
     }
