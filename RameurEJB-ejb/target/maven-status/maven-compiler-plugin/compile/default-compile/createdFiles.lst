@@ -1,4 +1,5 @@
 ear/entity/Utilisateur.class
+ear/entity/Participe_entrainement.class
 ear/session/EntrainementBean.class
 ear/entity/Mesure_moyenne$QN.class
 ear/session/MesureBean.class
@@ -23,6 +24,7 @@ ear/session/UtilisateurRemote.class
 ear/entity/Utilisateur$QN.class
 ear/session/MesureRemote.class
 ear/entity/Type_activite.class
+ear/entity/Participe_course.class
 ear/entity/Course$QN.class
 ear/entity/Mesure$QN.class
 ear/entity/Activite_distance.class

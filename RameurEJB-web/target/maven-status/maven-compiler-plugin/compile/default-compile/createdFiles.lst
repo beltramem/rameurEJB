@@ -1,6 +1,7 @@
 ear/service/ApplicationRest.class
 ear/service/TypeActiviteService.class
 ear/message/Consumer.class
+ear/message/FinActivite.class
 ear/service/EntrainementService.class
 ear/service/UtilisateurService.class
 ear/model/ResponseList.class

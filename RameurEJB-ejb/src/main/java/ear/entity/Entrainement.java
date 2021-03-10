@@ -43,10 +43,7 @@ public class Entrainement implements Serializable {
     private int etat;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date date;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable( name = "participe_entrainement",
-            joinColumns = @JoinColumn( name = "id" ),
-            inverseJoinColumns = @JoinColumn( name = "identifiant" ) )
+    @OneToMany( targetEntity=Participe_entrainement.class, mappedBy="entrainement")
     private List<Utilisateur> participants;
 
     public List<Utilisateur> getParticipants() {

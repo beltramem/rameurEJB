@@ -8,6 +8,7 @@
 /root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/session/TypeActiviteBean.java
 /root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/session/MesureRemote.java
 /root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/session/CourseRemote.java
+/root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/entity/Participe_course.java
 /root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/entity/Entrainement.java
 /root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/entity/Mesure.java
 /root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/entity/Utilisateur.java
@@ -17,6 +18,7 @@
 /root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/entity/Activite_distance.java
 /root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/session/UtilisateurLocal.java
 /root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/session/MesureLocal.java
+/root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/entity/Participe_entrainement.java
 /root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/session/EntrainementLocal.java
 /root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/session/EntrainementBean.java
 /root/IdeaProjects/rameurEJB/RameurEJB-ejb/src/main/java/ear/entity/Activite_series.java

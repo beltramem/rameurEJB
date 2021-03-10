@@ -59,6 +59,12 @@ public class Consumer {
     }
     public Consumer(){}
 
+
+    public void close()
+    {
+
+    }
+
     public void getMessage() throws Exception {
         try {
 
@@ -78,6 +84,7 @@ public class Consumer {
             DeliverCallback deliverCallback = new DeliverCallback() {
                 @Override
                 public void handle(String consumerTag, Delivery delivery) throws IOException {
+                    boolean success = true;
                     byte[] byteMessage = delivery.getBody();
                     //System.out.println("message recu");
                     try {
@@ -93,6 +100,15 @@ public class Consumer {
                     }catch (Exception e)
                     {
                         e.printStackTrace();
+                        success = false;
+                    }
+                    if(!success)
+                    {
+                        FinActivite fin = (FinActivite) SerializationUtils.deserialize(byteMessage);
+                        if(fin.getId_course()!=null)
+                        {
+                            String query = "update course set ";
+                        }
                     }
                 }
             };

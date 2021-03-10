@@ -1,6 +1,7 @@
 package ear.session;
 
 import ear.entity.Entrainement;
+import ear.entity.Participe_entrainement;
 import ear.entity.Type_activite;
 import ear.entity.Utilisateur;
 
@@ -44,7 +45,9 @@ public class EntrainementBean implements EntrainementLocal, EntrainementRemote {
 
 
         Entrainement ent = new Entrainement(activite.get(0),0,participants);
+        Participe_entrainement pe = new Participe_entrainement(ent,participants.get(0), etat);
         em.persist(ent);
+        em.persist(pe);
         return ent;
     }
 

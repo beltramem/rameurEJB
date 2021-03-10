@@ -49,6 +49,7 @@ public class MainApplication {
                         eg.creerEntrainementSolo(usr);
                         break;
                 }
+                break;
 
             }
 
