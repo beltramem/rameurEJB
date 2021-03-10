@@ -48,7 +48,7 @@ public class MainApplication {
                     case "1":
                         eg.creerEntrainementSolo(usr);
                 }
-
+                break;
             }
 
             case "2":{
@@ -65,6 +65,7 @@ public class MainApplication {
                     case "3":
                         cg.rejoindreCourse(usr);
                 }
+                break;
             }
         }
     }

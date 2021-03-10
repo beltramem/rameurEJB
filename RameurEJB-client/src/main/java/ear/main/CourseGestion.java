@@ -50,6 +50,7 @@ public class CourseGestion {
                     {
                         System.out.println("trop peu de participants");
                     }
+                    break;
                 }
             }
         }
@@ -79,7 +80,7 @@ public class CourseGestion {
                 String topic = "course."+coursedata+"."+usr.getIdentifiant();
                 ear.model.Course race = new CourseDuree(coursedata,queu,topic,usr,activites.get(subChoix-1).getDuree());
                 lancerCourse(coursedata,race);
-
+                break;
             }
             case "2": {
                 System.out.println("Choisir dans la liste :");
@@ -96,6 +97,7 @@ public class CourseGestion {
                 ear.model.Course race = new CourseDistance(coursedata,queu,topic,usr,activites.get(subChoix-1).getDistance());
                 lancerCourse(coursedata,race);
                 System.out.println("course fini");
+                break;
             }
             case "3": {
                 System.out.println("Choisir dans la liste :");
@@ -111,7 +113,7 @@ public class CourseGestion {
                 String topic = "course."+coursedata+"."+usr.getIdentifiant();
                 ear.model.Course race = new CourseSeries(coursedata,queu,topic,usr,activites.get(subChoix-1).getNbSeries());
                 lancerCourse(coursedata,race);
-
+                break;
             }
 
         }
