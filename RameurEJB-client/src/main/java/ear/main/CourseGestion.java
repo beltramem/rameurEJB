@@ -95,7 +95,7 @@ public class CourseGestion {
                 String topic = "course."+coursedata+"."+usr.getIdentifiant();
                 ear.model.Course race = new CourseDistance(coursedata,queu,topic,usr,activites.get(subChoix-1).getDistance());
                 lancerCourse(coursedata,race);
-
+                System.out.println("course fini");
             }
             case "3": {
                 System.out.println("Choisir dans la liste :");

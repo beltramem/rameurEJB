@@ -80,7 +80,11 @@ public class RowerLink {
         }
         //puissance = (double) puis.strokeWatts;
         distanceTmp=distanceTotale-distanceTmp;
-        Integer freqCardiaque=freq.beatsPerMinute;
+        Integer freqCardiaque=null;
+        if (freq.beatsPerMinute!=0)
+        {
+            freqCardiaque=freq.beatsPerMinute;
+        }
         double vitesse1=vitesse(distanceTmp, rafraichissement);
 
         distanceTmp=distanceTotale;
