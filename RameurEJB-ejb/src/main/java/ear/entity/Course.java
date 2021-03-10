@@ -41,7 +41,7 @@ public class Course implements Serializable {
     private int etat;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date date;
-    @OneToMany( targetEntity=Participe_course.class, mappedBy="course" )
+    @OneToMany(fetch=FetchType.EAGER, targetEntity=Participe_course.class, mappedBy="course" )
     private List<Utilisateur> participants;
 
     public List<Utilisateur> getParticipants() {
@@ -83,6 +83,8 @@ public class Course implements Serializable {
         this.date = date;
     }
 
+
+
     public Course(int id, Type_activite type_activite, int etat, Date date) {
         this.id = id;
         this.type_activite = type_activite;
@@ -108,7 +110,6 @@ public class Course implements Serializable {
     public void addParticipant(Utilisateur u)
     {
         this.participants.add(u);
-
     }
 
     public Course() {

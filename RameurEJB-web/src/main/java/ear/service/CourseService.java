@@ -69,7 +69,7 @@ public class CourseService {
             throw new WebApplicationException("Can't find it", 404);
         }
 
-        race.getCourseById(id_course).addParticipant(utilisateur);
+        race.rejoindreCourse(course,utilisateur);
         Consumer consume = new Consumer(id_utilisateur);
         consume.getMessage();
         return Response.noContent().build();

@@ -47,6 +47,7 @@ public class CourseBean implements CourseLocal, CourseRemote {
         Course race = new Course(activite.get(0),0,participants);
         Participe_course pc = new Participe_course(race,participants.get(0), etat);
         em.persist(race);
+        em.persist(pc);
         return race;
     }
 
@@ -77,6 +78,12 @@ public class CourseBean implements CourseLocal, CourseRemote {
          race=courses.get(0);
         }
         return race;
+    }
+
+    @Override
+    public void rejoindreCourse(Course race, Utilisateur usr) {
+       Participe_course participe =  new Participe_course(race, usr , 0);
+       em.persist(participe);
     }
 
     @Override

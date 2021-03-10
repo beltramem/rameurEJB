@@ -1,6 +1,9 @@
 package ear.entity;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 
 import java.io.Serializable;
 
@@ -16,6 +19,8 @@ public class Participe_course implements Serializable {
     private Utilisateur usr;
     private int etat;
 
+    @XmlTransient
+    @JsonIgnore
     public Course getCourse() {
         return course;
     }

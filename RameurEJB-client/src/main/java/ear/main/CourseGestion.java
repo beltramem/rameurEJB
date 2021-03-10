@@ -29,9 +29,6 @@ public class CourseGestion {
         while (tourne)
         {
             coursedata = crc.getCourse(coursedata.getId());
-            for( Utilisateur u : coursedata.getParticipants() ) {
-                System.out.println(u.getIdentifiant());
-            }
             System.out.println("1: maj des participants");
             System.out.println("2: lancer la course");
             int lancer = sc.nextInt();
