@@ -47,8 +47,9 @@ public class MainApplication {
                 switch (subChoix) {
                     case "1":
                         eg.creerEntrainementSolo(usr);
+                        break;
                 }
-                break;
+
             }
 
             case "2":{
@@ -60,10 +61,13 @@ public class MainApplication {
                 switch (subChoix) {
                     case "1":
                         //cg.creerCourseIA(usr);
+                        break;
                     case "2":
                         cg.creerCourseVShumain(usr);
+                        break;
                     case "3":
                         cg.rejoindreCourse(usr);
+                        break;
                 }
                 break;
             }

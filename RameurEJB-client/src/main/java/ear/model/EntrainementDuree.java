@@ -30,7 +30,7 @@ public class EntrainementDuree extends  Entrainement{
         {
             System.out.println("totalTime: "+totalTime+" startTime: "+startTime + " duree: "+duree + " Pow: "+(duree*pow(10,9)));
             //System.out.println(this.entrainementData.getId());
-            Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.entrainementData.getId());
+            Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),null,this.entrainementData.getId());
             //System.out.println(mesure.toString());
             this.senderQueuData.send_mesure(mesure);
             toFinish = (System.nanoTime() - startTime >= totalTime);

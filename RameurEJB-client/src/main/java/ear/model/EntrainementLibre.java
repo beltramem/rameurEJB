@@ -15,7 +15,7 @@ public class EntrainementLibre extends  Entrainement{
     public void lancerEntrainementSolo() throws IOException, TimeoutException, InterruptedException {
         while (true) {
 
-            Mesure mesure =this.rl.getMesure(this.utilisateur.getIdentifiant(),this.entrainementData.getId());
+            Mesure mesure =this.rl.getMesure(this.utilisateur.getIdentifiant(),null,this.entrainementData.getId());
             this.senderQueuData.send_mesure(mesure);
             Thread.sleep(500);
         }

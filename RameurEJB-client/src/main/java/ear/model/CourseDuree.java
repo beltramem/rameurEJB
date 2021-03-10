@@ -27,7 +27,7 @@ public class CourseDuree  extends  Course{
         this.rl.goToMenu();
         while (!toFinish) {
         //MESURE AVEC RAMEUR
-        Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.courseData.getId());
+        Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.courseData.getId(),null);
 
         //MESURE ALEATOIRE
         //Mesure mesure = this.mesureAleatoire(this.utilisateur.getIdentifiant(),this.courseData.getId(),null);

@@ -23,7 +23,7 @@ public class EntrainementDistance extends  Entrainement{
             //Mesure mesure = this.mesureAleatoire(this.utilisateur.getIdentifiant(), null, Integer.valueOf(this.entrainementData.getId()));
             //System.out.println(mesure.toString());
 
-            Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.entrainementData.getId());
+            Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),null,this.entrainementData.getId());
             System.out.println(mesure.toString());
             this.senderQueuData.send_mesure(mesure);
             toFinish = (distance <= mesure.getDistance_parcourue());

@@ -18,7 +18,7 @@ public class EntrainementSeries extends  Entrainement{
     public void lancerEntrainementSolo() throws IOException, TimeoutException, InterruptedException {
         while (!toFinish) {
 
-            Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),this.entrainementData.getId());
+            Mesure mesure = this.rl.getMesure(this.utilisateur.getIdentifiant(),null,this.entrainementData.getId());
             this.senderQueuData.send_mesure(mesure);
             toFinish= (this.nbCoups <= mesure.getNbCoup());
             System.out.println(mesure.getNbCoup());

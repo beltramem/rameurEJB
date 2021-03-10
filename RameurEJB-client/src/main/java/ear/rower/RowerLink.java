@@ -57,7 +57,7 @@ public class RowerLink {
     }
 
 
-    public Mesure getMesure(String usr, Integer id_entrainement)
+    public Mesure getMesure(String usr,Integer id_course, Integer id_entrainement)
     {
         UsbResponse response = r.sendCommand(this.command);
         Response.CSAFE_PM_GET_WORKDISTANCE dist = (Response.CSAFE_PM_GET_WORKDISTANCE) response.specificPMResponses.get(Response.SPECIFIC_PM_CODE.CSAFE_PM_GET_WORKDISTANCE);
@@ -91,7 +91,7 @@ public class RowerLink {
 
 
         System.out.println("usr:"+usr+"date:"+new Date()+"vitesse:"+vitesse1+"dist:"+distanceTotale+"calo:"+calories+"puissance:"+puissance+"freq:"+freqCardiaque+"idcourse:"+null+"identrainement:"+id_entrainement+"nbcoups:"+coups);
-        Mesure m = new Mesure(usr,new Date(),vitesse1,distanceTotale,calories,puissance,freqCardiaque,null,id_entrainement,coups);
+        Mesure m = new Mesure(usr,new Date(),vitesse1,distanceTotale,calories,puissance,freqCardiaque,id_course,id_entrainement,coups);
         //System.out.println(m.toString());
 
         //System.out.println("Coups de ram: "+coups);
